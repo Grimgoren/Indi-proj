@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  background-color: green;
+  padding: 10px;
+}
+
+.navbar-kiosk-container {
+  width: 100%;
+  background-color: lightgray;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, height 0.3s ease, padding 0.3s ease;
+  position: relative;
+  top: 0; 
+  z-index: 10;
+  height: 0;
+  padding: 0;
+}
+
+.navbar-kiosk-container:hover {
+  transform: translateX();
+  opacity: 1;
+  height: auto;
+  padding: 10px;
+}
+
+.navbar-kiosk {
+  display: flex;
+  background-color: green;
+  padding: 10px;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  width: 100%;
+}
+
+.navbar-kiosk-container:hover .navbar-kiosk {
+  opacity: 1;
+}
+
+.kiosk-container {
+  padding-top: 0;
+}
+
+

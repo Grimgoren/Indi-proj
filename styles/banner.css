@@ -1,0 +1,12 @@
+.banner {
+  display: flex;
+  background-color: blue;
+  padding: 20px;
+}
+
+.banner-kiosk {
+  display: flex;
+  background-color: blue;
+  padding: 20px;
+  height: 10%;
+}
