@@ -1,12 +1,12 @@
 {
   "Projects": [
       {
-          "Title": "",
-          "Description": "",
-          "Tag": "",
-          "Screenshot": "",
-          "URL": "",
-          "Type": ""
+          "Title": "Test project 1",
+          "Description": "Test description 1",
+          "Tag": "Test tag 1",
+          "Screenshot": "Test screenshot 1",
+          "URL": "Test URL 1",
+          "Type": "Test Type 1"
       },
       {
           "Title": "",

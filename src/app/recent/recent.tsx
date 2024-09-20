@@ -6,9 +6,13 @@ export default function Recent() {
           <button className="navbutton">Home</button>
           <button className="navbutton">Contact</button>
           <button className="navbutton">About</button>
+          <button className="navbutton">Kiosk</button>
         </div>
       <div className="page-layout">
         <div className="side-content-container">
+          <div className="searchbar">
+            <input type="text" placeholder="Search.."></input>
+          </div>
           <div className="content-side">
             <p>Side Content</p>
           </div>

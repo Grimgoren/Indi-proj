@@ -15,6 +15,8 @@ import "./../../styles/layout.css";
 import "./../../styles/nav.css";
 import "./../../styles/side-content.css";
 import "./../../styles/wrapper.css";
+import "./../../styles/search.css";
+
 
 const inter = Inter({ subsets: ['latin'] })
 

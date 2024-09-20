@@ -3,6 +3,7 @@
   height: 100%;
   background-color: lightgray;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 20px;
@@ -23,6 +24,8 @@
 }
 
 .content-side {
+  display: flex;
+  width: 100%;
   background-color: white;
   flex-grow: 1;
   padding: 20px;
