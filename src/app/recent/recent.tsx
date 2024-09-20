@@ -19,7 +19,6 @@ export default function Recent() {
           </div>
         </div>
       </div>
-      <div className="footer">Footer</div>
     </>
   );
 }
