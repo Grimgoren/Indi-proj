@@ -31,10 +31,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='h-full bg-white antialiased'>
       <body className={inter.className + 'h-full bg-white'}>
-        <Header />
-        <BackgroundImage position='right' className='-bottom-32 -top-40' />
         {children}
-        <Footer />
       </body>
     </html>
   )
