@@ -6,17 +6,16 @@ import './globals.css'
 //import { BackgroundImage } from '@/components/BackgroundImage'
 import { Footer } from '@/components/Footer'
 
-import "./../../styles/style.css";
-import "./../../styles/banner.css";
-import "./../../styles/buttons.css";
-import "./../../styles/content.css";
-import "./../../styles/footer.css";
-import "./../../styles/layout.css";
-import "./../../styles/nav.css";
-import "./../../styles/side-content.css";
-import "./../../styles/wrapper.css";
-import "./../../styles/search.css";
-
+import './../../styles/style.css'
+import './../../styles/banner.css'
+import './../../styles/buttons.css'
+import './../../styles/content.css'
+import './../../styles/footer.css'
+import './../../styles/layout.css'
+import './../../styles/nav.css'
+import './../../styles/side-content.css'
+import './../../styles/wrapper.css'
+import './../../styles/search.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,4 +40,3 @@ export default function RootLayout({
     </html>
   )
 }
-

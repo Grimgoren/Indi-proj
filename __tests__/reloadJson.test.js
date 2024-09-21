@@ -1,19 +1,19 @@
-import '@testing-library/jest-dom';
-import reloadJson from '../src/components/reloadJson.tsx';
-import readJson from '../src/components/jsonRead';
+import '@testing-library/jest-dom'
+import reloadJson from '../src/components/reloadJson.tsx'
+import readJson from '../src/components/jsonRead'
 
-jest.mock("../src/components/jsonRead");
+jest.mock('../src/components/jsonRead')
 
-describe("reloadJson", () => {
+describe('reloadJson', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
-  });
+    jest.useFakeTimers()
+  })
 
-  it("should call readJson after 10 minutes", () => {
-    reloadJson();
+  it('should call readJson after 10 minutes', () => {
+    reloadJson()
 
-    jest.advanceTimersByTime(600000);
+    jest.advanceTimersByTime(600000)
 
-    expect(readJson).toHaveBeenCalled();
-  });
-});
+    expect(readJson).toHaveBeenCalled()
+  })
+})

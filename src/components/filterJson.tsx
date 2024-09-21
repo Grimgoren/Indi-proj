@@ -1,37 +1,41 @@
-import sumJsonQuery from "./sumJsonQuery";
+import sumJsonQuery from './sumJsonQuery'
 
 interface Project {
-  Title: string;
-  Description: string;
-  Tag: string;
-  Screenshot: string;
-  URL: string;
-  Type: string;
+  Title: string
+  Description: string
+  Tag: string
+  Screenshot: string
+  URL: string
+  Type: string
 }
 
-async function filterJson(query: string): Promise<{ filteredProjects: Project[], totalQuery: number } | null> {
+async function filterJson(
+  query: string
+): Promise<{ filteredProjects: Project[]; totalQuery: number } | null> {
   try {
-    const response = await fetch('data/projects.json');
-    const data = await response.json();
+    const response = await fetch('data/projects.json')
+    const data = await response.json()
 
-    const projects: Project[] = data.Projects;
+    const projects: Project[] = data.Projects
 
     const filteredProjects = projects.filter((project: Project) => {
-      return project.Title.includes(query) || 
-            project.Screenshot.includes(query) || 
-            project.Tag.includes(query) || 
-            project.Description.includes(query) || 
-            project.URL.includes(query) || 
-            project.Type.includes(query);
-    });
+      return (
+        project.Title.includes(query) ||
+        project.Screenshot.includes(query) ||
+        project.Tag.includes(query) ||
+        project.Description.includes(query) ||
+        project.URL.includes(query) ||
+        project.Type.includes(query)
+      )
+    })
 
-    const totalQuery = await sumJsonQuery(filteredProjects);
+    const totalQuery = await sumJsonQuery(filteredProjects)
 
-    return { filteredProjects, totalQuery };
+    return { filteredProjects, totalQuery }
   } catch (error) {
-    console.error('Error in filterJson function:', error);
-    return null;
+    console.error('Error in filterJson function:', error)
+    return null
   }
 }
 
-export default filterJson;
+export default filterJson

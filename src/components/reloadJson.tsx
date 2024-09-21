@@ -1,9 +1,9 @@
-import readJson from "./jsonRead";
+import readJson from './jsonRead'
 
 async function reloadJson() {
   setTimeout(() => {
     readJson()
-  }, 600000);
+  }, 600000)
 }
 
-export default reloadJson;
+export default reloadJson

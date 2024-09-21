@@ -1,24 +1,34 @@
+import projectData from '../data/projects.json';
+
 export default function Homepage() {
   return (
     <>
-      <div className="banner">Home page</div>
-      <div className="navbar">
-          <button className="navbutton">Home</button>
-          <button className="navbutton">Contact</button>
-          <button className="navbutton">About</button>
-          <button className="navbutton">Kiosk</button>
-        </div>
-      <div className="page-layout">
-        <div className="side-content-container">
-          <div className="searchbar">
-            <input type="text" placeholder="Search.."></input>
+      <div className='banner'>Home page</div>
+      <div className='navbar'>
+        <button className='navbutton'>Home</button>
+        <button className='navbutton'>Contact</button>
+        <button className='navbutton'>About</button>
+        <button className='navbutton'>Kiosk</button>
+      </div>
+      <div className='page-layout'>
+        <div className='side-content-container'>
+          <div className='searchbar'>
+            <input type='text' placeholder='Search..'></input>
           </div>
-          <div className="content-side">
-            <p>Side Content</p>
+          <div className='content-side'>
+            <ul>
+              {projectData.Projects.map((project, index) => (
+                <li key={index}>
+                  {project.Title && <strong>{project.Title}</strong>}
+                  <p>{project.Description}</p>
+                  {project.URL && <a href={project.URL}></a>}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="content-container">
-          <div className="content">
+        <div className='content-container'>
+          <div className='content'>
             <p>Content goes here</p>
           </div>
         </div>
@@ -26,3 +36,4 @@ export default function Homepage() {
     </>
   );
 }
+

@@ -11,9 +11,13 @@
   justify-content: flex-start;
   align-items: center;
   opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease, height 0.3s ease, padding 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    height 0.3s ease,
+    padding 0.3s ease;
   position: relative;
-  top: 0; 
+  top: 0;
   z-index: 10;
   height: 0;
   padding: 0;
@@ -42,5 +46,3 @@
 .kiosk-container {
   padding-top: 0;
 }
-
-
