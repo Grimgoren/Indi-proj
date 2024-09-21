@@ -13,7 +13,7 @@ async function filterJson(
   query: string
 ): Promise<{ filteredProjects: Project[]; totalQuery: number } | null> {
   try {
-    const response = await fetch('data/projects.json')
+    const response = await fetch('/data/projects.json')
     const data = await response.json()
 
     const projects: Project[] = data.Projects
