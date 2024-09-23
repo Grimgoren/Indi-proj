@@ -1,5 +1,14 @@
 'use client';
 
+interface Project {
+  Title: string
+  Description: string
+  Tag: string
+  Screenshot: string
+  URL: string
+  Type: string
+}
+
 import { useState, useEffect } from 'react';
 import filterJson from '@/components/filterJson';
 import sumJsonQuery from '@/components/sumJsonQuery';
@@ -8,7 +17,7 @@ import reloadJson from '@/components/reloadJson';
 
 export default function Homepage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [totalQuery, setTotalQuery] = useState(0);
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
 
@@ -21,12 +30,9 @@ export default function Homepage() {
 
   useEffect(() => {
     const reloadData = async () => {
-      reloadJson();
+      await reloadJson();
     };
     reloadData();
-    return () => {
-      clearTimeout(reloadData);
-    };
   }, []);
 
   useEffect(() => {
