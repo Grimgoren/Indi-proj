@@ -31,7 +31,7 @@ describe('filterJson', () => {
   it('filters JSON data correctly', async () => {
     const data = await filterJson('Searchthis')
 
-    expect(global.fetch).toHaveBeenCalledWith('data/projects.json')
+    expect(global.fetch).toHaveBeenCalledWith('/data/projects.json')
 
     expect(data).not.toBeNull()
     expect(data.filteredProjects.length).toBeGreaterThan(0)

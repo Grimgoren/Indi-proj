@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import filterJson from '@/components/filterJson';
 import sumJsonQuery from '@/components/sumJsonQuery';
+import readJson from '@/components/jsonRead';
+import reloadJson from '@/components/reloadJson';
 
 export default function Homepage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -10,19 +12,33 @@ export default function Homepage() {
   const [totalQuery, setTotalQuery] = useState(0);
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
 
-  // Debouncing the search input
+  useEffect(() => {
+    const loadData = async () => {
+      await readJson();
+    };
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    const reloadData = async () => {
+      reloadJson();
+    };
+    reloadData();
+    return () => {
+      clearTimeout(reloadData);
+    };
+  }, []);
+
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedQuery(searchQuery);
-    }, 300); // Wait 300ms before setting the debounced query
+    }, 300);
 
-    // Cleanup the timeout if the user is still typing
     return () => {
       clearTimeout(handler);
     };
   }, [searchQuery]);
 
-  // Run the search whenever debouncedQuery changes
   useEffect(() => {
     const performSearch = async () => {
       if (debouncedQuery) {
@@ -36,8 +52,12 @@ export default function Homepage() {
           setTotalQuery(0);
         }
       } else {
-        setFilteredProjects([]);
-        setTotalQuery(0);
+        const allProjects = await filterJson('');
+        if (allProjects) {
+          setFilteredProjects(allProjects.filteredProjects);
+          const sumResult = await sumJsonQuery(allProjects.filteredProjects);
+          setTotalQuery(sumResult);
+        }
       }
     };
 
@@ -64,7 +84,7 @@ export default function Homepage() {
               type='text'
               placeholder='Search..'
               value={searchQuery}
-              onChange={handleSearchChange} // Input event listener
+              onChange={handleSearchChange}
             />
           </div>
           <div className='content-side'>
