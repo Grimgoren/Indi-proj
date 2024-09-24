@@ -14,6 +14,7 @@ import filterJson from '@/components/filterJson';
 import sumJsonQuery from '@/components/sumJsonQuery';
 import readJson from '@/components/jsonRead';
 import reloadJson from '@/components/reloadJson';
+import SelectProject from '@/components/selectProject';
 
 export default function Homepage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -94,25 +95,43 @@ export default function Homepage() {
             />
           </div>
           <div className='content-side'>
-            <ul>
-              {filteredProjects.length > 0 ? (
-                filteredProjects.map((project, index) => (
-                  <li key={index}>
-                    {project.Title && <strong>{project.Title}</strong>}
-                    <p>{project.Description}</p>
-                    {project.URL && <a href={project.URL}>{project.URL}</a>}
-                  </li>
-                ))
-              ) : (
-                <p>No projects found</p>
-              )}
-            </ul>
+              <ul>
+                {filteredProjects.length > 0 ? (
+                  filteredProjects.map((project, index) => (
+                    <li key={index}>
+                      <SelectProject>
+                      {project.Title && <strong>{project.Title}</strong>}
+                      </SelectProject>
+                      <p>{project.Description}</p>
+                      {project.URL && <a href={project.URL}>{project.URL}</a>}
+                    </li>
+                  ))
+                ) : (
+                  <p>No projects found</p>
+                )}
+              </ul>
             <p>Total Results: {totalQuery}</p>
           </div>
         </div>
         <div className='content-container'>
           <div className='content'>
-            <p>Content goes here</p>
+            <ul>
+                {filteredProjects.length > 0 ? (
+                  filteredProjects.map((project, index) => (
+                    <li key={index}>
+                      {project.Title && <strong>{project.Title}</strong>}
+                      <p>{project.Description}</p>
+                      {project.URL && <a href={project.URL}>{project.URL}</a>}
+                      <p>{project.Tag}</p>
+                      <p>{project.Screenshot}</p>
+                      <p>{project.URL}</p>
+                      <p>{project.Type}</p>
+                    </li>
+                  ))
+                ) : (
+                  <p>No projects found</p>
+                )}
+              </ul>
           </div>
         </div>
       </div>
