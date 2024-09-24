@@ -14,7 +14,6 @@ import filterJson from '@/components/filterJson';
 import sumJsonQuery from '@/components/sumJsonQuery';
 import readJson from '@/components/jsonRead';
 import reloadJson from '@/components/reloadJson';
-import SelectProject from '@/components/selectProject';
 
 export default function Homepage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -22,6 +21,12 @@ export default function Homepage() {
   const [totalQuery, setTotalQuery] = useState(0);
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showThis, setShowThis] = useState(null);
+  const handleClick = async (project) => {
+    alert('Fetching project...');
+    console.log("Fetching ", project);
+    setSelectedProject(project);
+  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -100,9 +105,9 @@ export default function Homepage() {
                 {filteredProjects.length > 0 ? (
                   filteredProjects.map((project, index) => (
                     <li key={index}>
-                      <SelectProject project={project}>
-                        {project.Title && <strong>{project.Title}</strong>}
-                      </SelectProject>
+                      <div  onClick={() => handleClick(project) } style={{ cursor: 'pointer' }}>
+                      {project.Title}
+                      </div>
                       <p>{project.Description}</p>
                       {project.URL && <a href={project.URL}>{project.URL}</a>}
                     </li>
