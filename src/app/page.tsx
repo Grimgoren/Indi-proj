@@ -21,6 +21,7 @@ export default function Homepage() {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [totalQuery, setTotalQuery] = useState(0);
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -99,8 +100,8 @@ export default function Homepage() {
                 {filteredProjects.length > 0 ? (
                   filteredProjects.map((project, index) => (
                     <li key={index}>
-                      <SelectProject>
-                      {project.Title && <strong>{project.Title}</strong>}
+                      <SelectProject project={project}>
+                        {project.Title && <strong>{project.Title}</strong>}
                       </SelectProject>
                       <p>{project.Description}</p>
                       {project.URL && <a href={project.URL}>{project.URL}</a>}
@@ -115,23 +116,16 @@ export default function Homepage() {
         </div>
         <div className='content-container'>
           <div className='content'>
-            <ul>
-                {filteredProjects.length > 0 ? (
-                  filteredProjects.map((project, index) => (
-                    <li key={index}>
-                      {project.Title && <strong>{project.Title}</strong>}
-                      <p>{project.Description}</p>
-                      {project.URL && <a href={project.URL}>{project.URL}</a>}
-                      <p>{project.Tag}</p>
-                      <p>{project.Screenshot}</p>
-                      <p>{project.URL}</p>
-                      <p>{project.Type}</p>
-                    </li>
-                  ))
-                ) : (
-                  <p>No projects found</p>
-                )}
-              </ul>
+            {selectedProject ? (
+              <div>
+                <h3>Selected Project:</h3>
+                <p><strong>{selectedProject.Title}</strong></p>
+                <p>{selectedProject.Description}</p>
+                {selectedProject.URL && <a href={selectedProject.URL}>Visit project</a>}
+              </div>
+            ) : (
+              <p>No project selected</p>
+            )}
           </div>
         </div>
       </div>
