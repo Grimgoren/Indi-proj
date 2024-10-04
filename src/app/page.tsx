@@ -91,10 +91,12 @@ export default function Homepage() {
   useEffect(() => {
     const generateQRCode = async () => {
       if (selectedProject) {
-        await qrCode();
+        localStorage.setItem('selectedProject', JSON.stringify(selectedProject));
+        const projURL = `${window.location.origin}/?project=${encodeURIComponent(selectedProject.Title)}`;
+        console.log('Project URL:' , projURL)
+        await qrCode(projURL);
       }
     };
-
     generateQRCode();
   }, [selectedProject]);
 

@@ -1,13 +1,13 @@
 import QRCode from 'qrcode';
 
-async function qrCode() {
+async function qrCode(projURL: string) {
   const canvas = document.getElementById('canvas');
 
-  QRCode.toCanvas(canvas, 'sample text', function (error) {
+  QRCode.toCanvas(canvas, projURL, function (error) {
     if (error) {
       console.error(error);
     } else {
-      console.log('QR code generated successfully!');
+      console.log('QR code generated for: ', projURL);
     }
   });
 }
