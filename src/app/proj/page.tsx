@@ -1,4 +1,4 @@
-import projectData from '../../data/projects.json';
+import projectData from '../../../public/data/projects.json';
 
 export default function Project() {
   return (

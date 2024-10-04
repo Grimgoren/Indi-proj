@@ -14,6 +14,7 @@ import filterJson from '@/components/filterJson';
 import sumJsonQuery from '@/components/sumJsonQuery';
 import readJson from '@/components/jsonRead';
 import reloadJson from '@/components/reloadJson';
+import qrCode from '@/components/qrcode';
 
 export default function Homepage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -77,6 +78,16 @@ export default function Homepage() {
     performSearch();
   }, [debouncedQuery]);
 
+  useEffect(() => {
+    const generateQRCode = async () => {
+      if (selectedProject) {
+        await qrCode();
+      }
+    };
+
+    generateQRCode();
+  }, [selectedProject]);
+
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
@@ -125,8 +136,12 @@ export default function Homepage() {
               <div>
                 <h3>Selected Project:</h3>
                 <p><strong>{selectedProject.Title}</strong></p>
+                <p>{selectedProject.Tag}</p>
+                <p>{selectedProject.Type}</p>
+                <p>{selectedProject.Screenshot}</p>
                 <p>{selectedProject.Description}</p>
                 {selectedProject.URL && <a href={selectedProject.URL}>Visit project</a>}
+                <canvas id="canvas"></canvas>
               </div>
             ) : (
               <p>No project selected</p>
