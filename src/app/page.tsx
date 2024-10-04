@@ -97,8 +97,7 @@ export default function Homepage() {
       <div className='banner'>Home page</div>
       <div className='navbar'>
         <button className='navbutton'>Home</button>
-        <button className='navbutton'>Contact</button>
-        <button className='navbutton'>About</button>
+        <button className='navbutton'>Recent</button>
         <button className='navbutton'>Kiosk</button>
       </div>
       <div className='page-layout'>
