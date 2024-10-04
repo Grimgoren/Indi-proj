@@ -15,8 +15,10 @@ import sumJsonQuery from '@/components/sumJsonQuery';
 import readJson from '@/components/jsonRead';
 import reloadJson from '@/components/reloadJson';
 import qrCode from '@/components/qrcode';
+import { useRouter } from 'next/navigation';
 
 export default function Homepage() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [totalQuery, setTotalQuery] = useState(0);
@@ -28,6 +30,14 @@ export default function Homepage() {
     console.log("Fetching ", project);
     setSelectedProject(project);
   };
+
+  useEffect(() => {
+    const savedProject = localStorage.getItem('selectedProject');
+    if (savedProject) {
+      setSelectedProject(JSON.parse(savedProject));
+      localStorage.removeItem('selectedProject');
+    }
+  }, []);
 
   useEffect(() => {
     const loadData = async () => {
@@ -96,10 +106,13 @@ export default function Homepage() {
     <>
       <div className='banner'>Home page</div>
       <div className='navbar'>
-        <button className='navbutton'>Home</button>
-        <button className='navbutton'>Recent</button>
-        <button className='navbutton'>Kiosk</button>
-      </div>
+      <button className="navbutton" onClick={() => router.push('/recent')}>
+          Recent
+        </button>
+        <button className="navbutton" onClick={() => router.push('/kiosk')}>
+          Kiosk
+        </button>
+        </div>
       <div className='page-layout'>
         <div className='side-content-container'>
           <div className='searchbar'>

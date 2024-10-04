@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import nextProject from '@/components/nextProject';
+import { useRouter } from 'next/navigation';
 
 interface Project {
   Title: string;
@@ -14,6 +15,7 @@ interface Project {
 
 export default function Kiosk() {
   const [project, setProject] = useState<Project | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const loadNextProject = async () => {
@@ -23,15 +25,12 @@ export default function Kiosk() {
       }
     };
 
-    // Load the first project immediately
     loadNextProject();
 
-    // Set up interval to load the next project every 4 seconds
     const intervalId = setInterval(() => {
       loadNextProject();
     }, 4000);
 
-    // Clean up the interval when the component unmounts
     return () => clearInterval(intervalId);
   }, []);
 
@@ -41,7 +40,9 @@ export default function Kiosk() {
       <div className='kiosk-wrapper'>
         <div className='navbar-kiosk-container'>
           <div className='navbar-kiosk'>
-            <button className='navbutton'>Home</button>
+            <button className="navbutton" onClick={() => router.push('/')}>
+            Home
+            </button>
           </div>
         </div>
         <div className='kiosk-container'>
