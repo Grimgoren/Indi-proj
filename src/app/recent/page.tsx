@@ -3,6 +3,8 @@
 import projectData from '../../../public/data/projects.json';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import filterJson from '@/components/filterJson';
+import sumJsonQuery from '@/components/sumJsonQuery';
 
 interface Project {
   Title: string;
@@ -19,6 +21,7 @@ export default function Recent() {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
+  const [totalQuery, setTotalQuery] = useState(0);
 
   const handleClick = async (project: Project) => {
     alert('Redirecting to main page...');
@@ -49,6 +52,31 @@ export default function Recent() {
     setFilteredProjects(filtered);
   }, [debouncedQuery]);
 
+  useEffect(() => {
+    const performSearch = async () => {
+      if (debouncedQuery) {
+        const result = await filterJson(debouncedQuery);
+        if (result) {
+          setFilteredProjects(result.filteredProjects);
+          const sumResult = await sumJsonQuery(result.filteredProjects);
+          setTotalQuery(sumResult);
+        } else {
+          setFilteredProjects([]);
+          setTotalQuery(0);
+        }
+      } else {
+        const allProjects = await filterJson('');
+        if (allProjects) {
+          setFilteredProjects(allProjects.filteredProjects);
+          const sumResult = await sumJsonQuery(allProjects.filteredProjects);
+          setTotalQuery(sumResult);
+        }
+      }
+    };
+
+    performSearch();
+  }, [debouncedQuery]);
+
   return (
     <>
       <div className="banner">Recent page</div>
@@ -73,6 +101,7 @@ export default function Recent() {
             </div>
             <div className="card-container">
               <div className="card-grid">
+              <p>Total Results: {totalQuery}</p>
                 {filteredProjects.length > 0 ? (
                   filteredProjects.map((project, index) => (
                     <div
