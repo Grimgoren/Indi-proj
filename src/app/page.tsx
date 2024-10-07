@@ -17,7 +17,7 @@ import reloadJson from '@/components/reloadJson';
 import qrCode from '@/components/qrcode';
 import { useRouter } from 'next/navigation';
 import loading from '@/components/loading';
-import $ from 'jquery';  // Import jQuery
+import $ from 'jquery';
 
 export default function Homepage() {
   const router = useRouter();
@@ -26,7 +26,7 @@ export default function Homepage() {
   const [totalQuery, setTotalQuery] = useState(0);
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [showThis, setShowThis] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = async (project) => {
     alert('Fetching project...');
@@ -39,6 +39,20 @@ export default function Homepage() {
   }, []);
 
   useEffect(() => {
+    const loadData = async () => {
+      await readJson();
+      setIsLoading(false);
+    };
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      $('#loading').fadeOut(500);
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
     const savedProject = localStorage.getItem('selectedProject');
     if (savedProject) {
       setSelectedProject(JSON.parse(savedProject));
@@ -47,18 +61,11 @@ export default function Homepage() {
   }, []);
 
   useEffect(() => {
-    const loadData = async () => {
-      await readJson();
-      $('#loading').fadeOut(3000);
-    };
-    loadData();
-  }, []);
-
-  useEffect(() => {
-    const reloadData = async () => {
+    const intervalId = setInterval(async () => {
       await reloadJson();
-    };
-    reloadData();
+    }, 50000);
+  
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {

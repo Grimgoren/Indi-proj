@@ -62,10 +62,11 @@ export default function Recent() {
   }, []);
 
   useEffect(() => {
-    const reloadData = async () => {
+    const intervalId = setInterval(async () => {
       await reloadJson();
-    };
-    reloadData();
+    }, 50000);
+  
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
