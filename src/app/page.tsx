@@ -16,6 +16,8 @@ import readJson from '@/components/jsonRead';
 import reloadJson from '@/components/reloadJson';
 import qrCode from '@/components/qrcode';
 import { useRouter } from 'next/navigation';
+import loading from '@/components/loading';
+import $ from 'jquery';  // Import jQuery
 
 export default function Homepage() {
   const router = useRouter();
@@ -33,6 +35,10 @@ export default function Homepage() {
   };
 
   useEffect(() => {
+    loading();
+  }, []);
+
+  useEffect(() => {
     const savedProject = localStorage.getItem('selectedProject');
     if (savedProject) {
       setSelectedProject(JSON.parse(savedProject));
@@ -43,6 +49,7 @@ export default function Homepage() {
   useEffect(() => {
     const loadData = async () => {
       await readJson();
+      $('#loading').fadeOut(3000);
     };
     loadData();
   }, []);
@@ -116,6 +123,7 @@ export default function Homepage() {
           Kiosk
         </button>
         </div>
+      <div id="loading"></div>
       <div className='page-layout'>
         <div className='side-content-container'>
           <div className='searchbar'>

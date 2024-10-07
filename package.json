@@ -20,6 +20,7 @@
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
+    "jquery": "^3.7.1",
     "next": "^14.2.5",
     "qrcode": "^1.5.4",
     "react": "^18",
