@@ -4,6 +4,7 @@ async function readJson() {
     const data = await response.json()
 
     const projects = data.Projects
+    console.log('Reading Json')
     console.log(projects)
 
     return projects

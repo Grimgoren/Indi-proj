@@ -25,6 +25,7 @@ export default function Homepage() {
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showThis, setShowThis] = useState(null);
+
   const handleClick = async (project) => {
     alert('Fetching project...');
     console.log("Fetching ", project);

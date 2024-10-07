@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import filterJson from '@/components/filterJson';
 import sumJsonQuery from '@/components/sumJsonQuery';
+import readJson from '@/components/jsonRead';
+import reloadJson from '@/components/reloadJson';
 
 interface Project {
   Title: string;
@@ -51,6 +53,20 @@ export default function Recent() {
     );
     setFilteredProjects(filtered);
   }, [debouncedQuery]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      await readJson();
+    };
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    const reloadData = async () => {
+      await reloadJson();
+    };
+    reloadData();
+  }, []);
 
   useEffect(() => {
     const performSearch = async () => {
