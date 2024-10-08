@@ -154,11 +154,20 @@ export default function Homepage() {
             <div className='card-grid-side'>
               {filteredProjects.length > 0 ? (
                 filteredProjects.map((project, index) => (
-                  <div key={index} className="card-small" onClick={() => handleClick(project)} style={{ cursor: 'pointer' }}>
-                    <h3>{project.Title}</h3>
-                    <p>{project.Description}</p>
-                    {project.Screenshot && <img src={project.Screenshot} alt={project.Title} />}
-                    {project.URL && <a href={project.URL}>Visit project</a>}
+                  <div
+                    key={index}
+                    className="card-small"
+                    onClick={() => handleClick(project)}
+                    style={{
+                      backgroundImage: `url(${project.Screenshot})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <div className="overlay"></div> {/* Overlay element */}
+                    <p className='card-small-title'>{project.Title}</p>
+                    <p className='card-small-desc'>{project.Description}</p>
                   </div>
                 ))
               ) : (
@@ -167,15 +176,15 @@ export default function Homepage() {
             </div>
           </div>
         </div>
-        <div className='content-container'>
-          <div className='content'>
+            <div className="content-container">
+          <div className="content">
             {selectedProject ? (
               <div>
                 <h3>Selected Project:</h3>
                 <p><strong>{selectedProject.Title}</strong></p>
                 <p>{selectedProject.Tag}</p>
                 <p>{selectedProject.Type}</p>
-                <p>{selectedProject.Screenshot}</p>
+                <img src={selectedProject.Screenshot} alt={selectedProject.Title} /> {/* Fixed img tag */}
                 <p>{selectedProject.Description}</p>
                 {selectedProject.URL && <a href={selectedProject.URL}>Visit project</a>}
                 <canvas id="canvas"></canvas>

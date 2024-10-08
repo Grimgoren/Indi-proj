@@ -126,26 +126,31 @@ export default function Recent() {
               <p className='search-result'>Total Results: {totalQuery}</p>
             </div>
             <div className="card-container">
-            <div className="card-grid">
-              {filteredProjects.length > 0 ? (
-                filteredProjects.map((project, index) => (
-                  <div
-                    key={index}
-                    onClick={() => handleClick(project)}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <div className="card">
-                      <h3>{project.Title}</h3>
-                      <p>{project.Description}</p>
-                      <img src={project.Screenshot} alt={project.Title} />
-                    </div>
-                  </div>
-                ))
-                ) : (
-                  <p>No projects found</p>
-                )}
-              </div>
-            </div>
+  <div className='card-grid'>
+    {filteredProjects.length > 0 ? (
+      filteredProjects.map((project, index) => (
+        <div
+          key={index}
+          className="card"
+          onClick={() => handleClick(project)}
+          style={{
+            backgroundImage: `url(${project.Screenshot})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            cursor: 'pointer'
+          }}
+        >
+          <div className="overlay"></div> {/* Overlay element */}
+          <p className='card-title'>{project.Title}</p>
+          <p className='card-desc'>{project.Description}</p>
+        </div>
+      ))
+    ) : (
+      <p>No projects found</p>
+    )}
+  </div>
+</div>
+
           </div>
         </div>
       </div>

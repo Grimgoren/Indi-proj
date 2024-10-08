@@ -156,11 +156,20 @@ return (
             <div className='card-grid-side'>
               {filteredProjects.length > 0 ? (
                 filteredProjects.map((project, index) => (
-                  <div key={index} className="card-small" onClick={() => handleClick(project)} style={{ cursor: 'pointer' }}>
-                    <h3>{project.Title}</h3>
-                    <p>{project.Description}</p>
-                    {project.Screenshot && <img src={project.Screenshot} alt={project.Title} />}
-                    {project.URL && <a href={project.URL}>Visit project</a>}
+                  <div
+                    key={index}
+                    className="card-small"
+                    onClick={() => handleClick(project)}
+                    style={{
+                      backgroundImage: `url(${project.Screenshot})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <div className="overlay"></div> {/* Overlay element */}
+                    <p className='card-small-title'>{project.Title}</p>
+                    <p className='card-small-desc'>{project.Description}</p>
                   </div>
                 ))
               ) : (

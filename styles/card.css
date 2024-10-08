@@ -4,9 +4,10 @@
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
+
 
 .card-grid-side {
   display: grid;
@@ -15,29 +16,95 @@
 }
 
 .card-small {
+  position: relative;
   background-color: #4d4d4d2b;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   aspect-ratio: 1 / 1;
-  max-width: 500px;
-  max-height: 600px;
+  max-width: 330px;
+  overflow: hidden;
+}
+
+.card-small .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffffc7;
+  z-index: 1;
+}
+
+.card-small-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,   
+    1px 1px 0 #000;
+}
+
+.card-small-desc {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  color: black;
+  font-size: 18px;
 }
 
 .card {
+  position: relative;
   background-color: #4d4d4d2b;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.333);
   text-align: center;
   aspect-ratio: 1 / 1;
-  max-width: 500px;
-  max-height: 600px;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffffc7;
+  z-index: 1;
 }
 
 .card img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+.card-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,   
+    1px 1px 0 #000;
+}
+
+.card-desc {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  color: black;
+  font-size: 18px;
 }

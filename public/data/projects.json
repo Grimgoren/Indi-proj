@@ -1,12 +1,12 @@
 {
   "Projects": [
       {
-          "Title": "Test project 1",
-          "Description": "Test description 1",
-          "Tag": "Test tag 1",
-          "Screenshot": "Test screenshot 1",
-          "URL": "Test URL 1",
-          "Type": "Test Type 1"
+          "Title": "Credit-maker",
+          "Description": "CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the [CRediT website](https://credit.niso.org/).",
+          "Tag": "Research",
+          "Screenshot": "/images/robot-logo128.png",
+          "URL": "https://github.com/andreas-bauer/credit-maker",
+          "Type": "Research project"
       },
       {
           "Title": "Test project 2",
