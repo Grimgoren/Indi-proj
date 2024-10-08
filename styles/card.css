@@ -1,19 +1,39 @@
 .card-container {
-
+  background: linear-gradient(to right, white, rgb(226, 249, 255));
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.card {
-  background-color: #fff;
+.card-grid-side {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+
+.card-small {
+  background-color: #4d4d4d2b;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  aspect-ratio: 1 / 1;
+  max-width: 500px;
+  max-height: 600px;
+}
+
+.card {
+  background-color: #4d4d4d2b;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  aspect-ratio: 1 / 1;
+  max-width: 500px;
+  max-height: 600px;
 }
 
 .card img {

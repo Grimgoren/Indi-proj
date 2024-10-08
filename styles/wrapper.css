@@ -3,3 +3,17 @@
   flex-direction: column;
   height: 100vh;
 }
+
+.banner-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-wrapper {
+  display: flex;
+  width: 100%;
+  margin: 5px;
+  flex-wrap: wrap;
+}

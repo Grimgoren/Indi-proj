@@ -2,3 +2,20 @@
   display: flex;
   width: 100%;
 }
+
+.searchbar input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.search-result {
+  color:white;
+  font-size: 30px;
+  text-shadow: 
+  -1px -1px 0 #000,  
+  1px -1px 0 #000,
+  -1px 1px 0 #000,   
+  1px 1px 0 #000;
+}

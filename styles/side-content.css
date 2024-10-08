@@ -14,6 +14,7 @@
     opacity 0.3s ease;
   position: absolute;
   left: 0;
+  background-color: rgb(149, 232, 255);
 }
 
 .side-content-container:hover {
@@ -26,13 +27,15 @@
 }
 
 .content-side {
-  display: flex;
+  display: grid;
   width: 100%;
   background-color: white;
-  flex-grow: 1;
   padding: 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  max-height: 100vh;
+  overflow-y: auto;
+  background-color: rgb(149, 232, 255);
 }
 
 .side-content-container:hover .content-side {
