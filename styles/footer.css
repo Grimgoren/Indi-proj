@@ -1,3 +1,19 @@
-.footer {
+footer {
+  flex: 0 0 auto;
+  background-color:  rgb(149, 232, 255);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+footer div {
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+footer p {
+  z-index: 40;
+  margin-right: 1rem;
+  font-size: 1rem;
+  color: #6B7280;
 }

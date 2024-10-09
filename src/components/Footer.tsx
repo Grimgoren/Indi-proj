@@ -1,8 +1,8 @@
 export function Footer() {
   return (
-    <footer className='flex-none bg-white py-2'>
-      <div className='flex items-center justify-end'>
-        <p className='z-40 mr-4 text-base text-gray-light'>
+    <footer className='footer'>
+      <div>
+        <p>
           Copyright &copy; {new Date().getFullYear()} Adam Grimmehed. All rights
           reserved.
         </p>

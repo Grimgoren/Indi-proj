@@ -180,7 +180,6 @@ export default function Homepage() {
           <div className="content">
             {selectedProject ? (
               <div>
-                <h3>Selected Project:</h3>
                 <p><strong>{selectedProject.Title}</strong></p>
                 <p>{selectedProject.Tag}</p>
                 <p>{selectedProject.Type}</p>
@@ -194,7 +193,7 @@ export default function Homepage() {
                 )}
 
                 <p>{selectedProject.Description}</p>
-                {selectedProject.URL && <a href={selectedProject.URL}>Visit project</a>}
+                {selectedProject.URL && <a href={selectedProject.URL}>{selectedProject.URL}</a>}
                 <canvas id="canvas"></canvas>
               </div>
             ) : (
