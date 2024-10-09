@@ -9,12 +9,13 @@ import readJson from '@/components/jsonRead';
 import reloadJson from '@/components/reloadJson';
 
 interface Project {
-  Title: string;
-  Description: string;
-  Tag: string;
-  Screenshot: string;
-  URL: string;
-  Type: string;
+  Title: string
+  Description: string
+  Summary: string
+  Tag: string
+  Screenshot: string
+  URL: string
+  Type: string
 }
 
 export default function Recent() {
@@ -134,15 +135,15 @@ export default function Recent() {
           className="card"
           onClick={() => handleClick(project)}
           style={{
-            backgroundImage: `url(${project.Screenshot})`,
+            backgroundImage: `url(${project.Screenshot[0]})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             cursor: 'pointer'
           }}
         >
-          <div className="overlay"></div> {/* Overlay element */}
+          <div className="overlay"></div>
           <p className='card-title'>{project.Title}</p>
-          <p className='card-desc'>{project.Description}</p>
+          <p className='card-sum'>{project.Summary}</p>
         </div>
       ))
     ) : (

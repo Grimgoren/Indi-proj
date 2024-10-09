@@ -3,6 +3,7 @@ import sumJsonQuery from './sumJsonQuery'
 interface Project {
   Title: string
   Description: string
+  Summary: string
   Tag: string
   Screenshot: string
   URL: string

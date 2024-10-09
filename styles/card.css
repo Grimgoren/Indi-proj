@@ -43,7 +43,7 @@
   font-family: 'Roboto', sans-serif;
   text-align: center;
   color: white;
-  font-size: 25px;
+  font-size: 30px;
   text-shadow: 
     -1px -1px 0 #000,  
     1px -1px 0 #000,
@@ -51,12 +51,12 @@
     1px 1px 0 #000;
 }
 
-.card-small-desc {
+.card-small-sum {
   position: relative;
   z-index: 2;
   text-align: left;
   color: black;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .card {
@@ -93,7 +93,7 @@
   font-family: 'Roboto', sans-serif;
   text-align: center;
   color: white;
-  font-size: 25px;
+  font-size: 30px;
   text-shadow: 
     -1px -1px 0 #000,  
     1px -1px 0 #000,
@@ -101,10 +101,10 @@
     1px 1px 0 #000;
 }
 
-.card-desc {
+.card-sum {
   position: relative;
   z-index: 2;
   text-align: left;
   color: black;
-  font-size: 18px;
+  font-size: 20px;
 }

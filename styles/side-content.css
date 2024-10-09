@@ -38,6 +38,10 @@
   background-color: rgb(149, 232, 255);
 }
 
+.content-side::-webkit-scrollbar {
+  display: none;
+}
+
 .side-content-container:hover .content-side {
   opacity: 1;
 }

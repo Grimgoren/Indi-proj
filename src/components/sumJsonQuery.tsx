@@ -1,6 +1,7 @@
 interface Project {
   Title: string
   Description: string
+  Summary: string
   Tag: string
   Screenshot: string
   URL: string

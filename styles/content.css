@@ -34,3 +34,7 @@
   padding: 20px;
   height: 100%;
 }
+
+.mainImage {
+  max-width: 300px;
+}

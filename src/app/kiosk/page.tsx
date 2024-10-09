@@ -1,12 +1,13 @@
 'use client';
 
 interface Project {
-  Title: string;
-  Description: string;
-  Tag: string;
-  Screenshot: string;
-  URL: string;
-  Type: string;
+  Title: string
+  Description: string
+  Summary: string
+  Tag: string
+  Screenshot: string
+  URL: string
+  Type: string
 }
 
 import { useState, useEffect } from 'react';
@@ -167,9 +168,9 @@ return (
                       cursor: 'pointer'
                     }}
                   >
-                    <div className="overlay"></div> {/* Overlay element */}
+                    <div className="overlay"></div>
                     <p className='card-small-title'>{project.Title}</p>
-                    <p className='card-small-desc'>{project.Description}</p>
+                    <p className='card-small-sum'>{project.Summary}</p>
                   </div>
                 ))
               ) : (
@@ -183,7 +184,7 @@ return (
             {project ? (
               <div>
                 <strong>{project.Title}</strong>
-                <p>{project.Description}</p>
+                <p>{project.Summary}</p>
                 {project.URL && (
                   <a href={project.URL} target="_blank" rel="noopener noreferrer">
                     {project.URL}

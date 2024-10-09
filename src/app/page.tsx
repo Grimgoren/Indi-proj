@@ -3,8 +3,9 @@
 interface Project {
   Title: string
   Description: string
+  Summary: string
   Tag: string
-  Screenshot: string
+  Screenshot: Array
   URL: string
   Type: string
 }
@@ -159,15 +160,15 @@ export default function Homepage() {
                     className="card-small"
                     onClick={() => handleClick(project)}
                     style={{
-                      backgroundImage: `url(${project.Screenshot})`,
+                      backgroundImage: `url(${project.Screenshot[0]})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       cursor: 'pointer'
                     }}
                   >
-                    <div className="overlay"></div> {/* Overlay element */}
+                    <div className="overlay"></div>
                     <p className='card-small-title'>{project.Title}</p>
-                    <p className='card-small-desc'>{project.Description}</p>
+                    <p className='card-small-sum'>{project.Summary}</p>
                   </div>
                 ))
               ) : (
@@ -176,7 +177,7 @@ export default function Homepage() {
             </div>
           </div>
         </div>
-            <div className="content-container">
+        <div className="content-container">
           <div className="content">
             {selectedProject ? (
               <div>
@@ -184,7 +185,15 @@ export default function Homepage() {
                 <p><strong>{selectedProject.Title}</strong></p>
                 <p>{selectedProject.Tag}</p>
                 <p>{selectedProject.Type}</p>
-                <img src={selectedProject.Screenshot} alt={selectedProject.Title} /> {/* Fixed img tag */}
+
+                {Array.isArray(selectedProject.Screenshot) && selectedProject.Screenshot.length > 0 ? (
+                  selectedProject.Screenshot.map((screenshot, i) => (
+                    <img key={i} className='mainImage' src={screenshot} alt={`${selectedProject.Title} screenshot ${i + 1}`} />
+                  ))
+                ) : (
+                  <p>No screenshots available</p>
+                )}
+
                 <p>{selectedProject.Description}</p>
                 {selectedProject.URL && <a href={selectedProject.URL}>Visit project</a>}
                 <canvas id="canvas"></canvas>

@@ -3,98 +3,132 @@
       {
           "Title": "Credit-maker",
           "Description": "CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the [CRediT website](https://credit.niso.org/).",
+          "Summary":"CRedit Maker helps you to create CRediT for your research papers.",
           "Tag": "Research",
-          "Screenshot": "/images/robot-logo128.png",
+          "Screenshot": ["/images/robot-logo128.png"
+        ],
           "URL": "https://github.com/andreas-bauer/credit-maker",
           "Type": "Research project"
       },
       {
-          "Title": "Test project 2",
-          "Description": "Test description 2",
-          "Tag": "Test tag 2",
-          "Screenshot": "Test screenshot 2",
-          "URL": "Test URL 2",
-          "Type": "Test Type 2"
+          "Title": "Agents",
+          "Description": "The Agents framework allows you to build AI-driven server programs that can see, hear, and speak in realtime. Your agent connects with end user devices through a LiveKit session. During that session, your agent can process text, audio, images, or video streaming from a user's device, and have an AI model generate any combination of those same modalities as output, and stream them back to the user.",
+          "Summary":"The Agents framework allows you to build AI-driven server programs that can see, hear, and speak in realtime.",
+          "Tag": "Research",
+          "Screenshot": ["/images/agent.png"
+        ],
+          "URL": "https://github.com/livekit/agents",
+          "Type": "Research project"
       },
       {
-        "Title": "Test project 3",
-        "Description": "Test description 3",
-        "Tag": "Test tag 3",
-        "Screenshot": "Test screenshot 3",
-        "URL": "Test URL 3",
-        "Type": "Test Type 3"
+        "Title": "Firecrawl",
+        "Description": "Firecrawl is an API service that takes a URL, crawls it, and converts it into clean markdown or structured data. We crawl all accessible subpages and give you clean data for each. No sitemap required. Check out our documentation.",
+        "Summary":"Firecrawl is an API service that takes a URL, crawls it, and converts it into clean markdown or structured data.",
+        "Tag": "Research",
+        "Screenshot": ["https://raw.githubusercontent.com/mendableai/firecrawl/main/img/firecrawl_logo.png"
+      ],
+        "URL": "https://github.com/mendableai/firecrawl",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 4",
-        "Description": "Test description 4",
-        "Tag": "Test tag 4",
-        "Screenshot": "Test screenshot 4",
-        "URL": "Test URL 4",
-        "Type": "Test Type 4"
+        "Title": "Gptme",
+        "Description": "Personal AI assistant in your terminal, with tools so it can: Use the terminal, run code, edit files, browse the web, use vision, and much more; Assists in all kinds of knowledge-work, especially programming, from a simple but powerful CLI. An unconstrained local alternative to ChatGPT's 'Code Interpreter'. Not limited by lack of software, internet access, timeouts, or privacy concerns (if using local models).",
+        "Summary":"Personal AI assistant in your terminal",
+        "Tag": "Research",
+        "Screenshot": ["https://camo.githubusercontent.com/03227f519bbb11d2f84e3119f81d6274bb0e39bfb9e1c7d91ce33ade2102a814/68747470733a2f2f6770746d652e6f72672f6d656469612f6c6f676f2e706e67"
+      ],
+        "URL": "https://github.com/ErikBjare/gptme",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 5",
-        "Description": "Test description 5",
-        "Tag": "Test tag 5",
-        "Screenshot": "Test screenshot 5",
-        "URL": "Test URL 5",
-        "Type": "Test Type 5"
+        "Title": "The Algorithms - Python",
+        "Description": "Implementations are for learning purposes only. They may be less efficient than the implementations in the Python standard library. Use them at your discretion.",
+        "Summary":"All algorithms implemented in Python - for education",
+        "Tag": "Research",
+        "Screenshot": [
+          "https://user-images.githubusercontent.com/51391473/141222955-00599571-4563-4785-b5ae-75a435faec12.png"
+      ],
+        "URL": "https://github.com/TheAlgorithms/Python",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 6",
-        "Description": "Test description 6",
-        "Tag": "Test tag 6",
-        "Screenshot": "Test screenshot 6",
-        "URL": "Test URL 6",
-        "Type": "Test Type 6"
+        "Title": "Pokemon Auto Chess",
+        "Description": "Non profit game. For fans, by fans.",
+        "Summary":"Non profit game. For fans, by fans.",
+        "Tag": "Research",
+        "Screenshot": [
+          "https://pokemon-auto-chess.com/assets/ui/pokemon_autochess_final.svg"
+        ],
+        "URL": "https://github.com/keldaanCommunity/pokemonAutoChess",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 7",
-        "Description": "Test description 7",
-        "Tag": "Test tag 7",
-        "Screenshot": "Test screenshot 7",
-        "URL": "Test URL 7",
-        "Type": "Test Type 7"
+        "Title": "Hyprland",
+        "Description": "Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks. It provides the latest Wayland features, is highly customizable, has all the eyecandy, the most powerful plugins, easy IPC, much more QoL stuff than other compositors and more...",
+        "Summary":"Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.",
+        "Tag": "Research",
+        "Screenshot": [
+          "/images/Hyprland.png"
+        ],
+        "URL": "https://github.com/hyprwm/Hyprland",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 8",
-        "Description": "Test description 8",
-        "Tag": "Test tag 8",
-        "Screenshot": "Test screenshot 8",
-        "URL": "Test URL 8",
-        "Type": "Test Type 8"
+        "Title": "Screenpipe",
+        "Description": "Library to build personalized AI powered by what you've seen, said, or heard. Works with Ollama. Alternative to Rewind.ai. Open. Secure. You own your data. Rust.",
+        "Summary": "Library to build personalized AI powered by what you've seen, said, or heard.",
+        "Tag": "Research",
+        "Screenshot": [
+          "/images/1024x1024.png",
+          "/images/screenpipe.png"
+        ],
+        "URL": "https://github.com/mediar-ai/screenpipe",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 9",
-        "Description": "Test description 9",
-        "Tag": "Test tag 9",
-        "Screenshot": "Test screenshot 9",
-        "URL": "Test URL 9",
-        "Type": "Test Type 9"
+        "Title": "Ecapture",
+        "Description": "Capture SSL/TLS text content without a CA certificate using eBPF",
+        "Summary":"Capture SSL/TLS text content without a CA certificate using eBPF",
+        "Tag": "Research",
+        "Screenshot": [
+          "https://raw.githubusercontent.com/gojue/ecapture/master/images/ecapture-logo-400x400.png"
+      ],
+        "URL": "https://github.com/gojue/ecapture",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 10",
-        "Description": "Test description 10",
-        "Tag": "Test tag 10",
-        "Screenshot": "Test screenshot 10",
-        "URL": "Test URL 10",
-        "Type": "Test Type 10"
+        "Title": "Meshery",
+        "Description": "A self-service engineering platform, Meshery, is the open source, cloud native manager that enables the design and management of all Kubernetes-based infrastructure and applications (multi-cloud). Among other features, As an extensible platform, Meshery offers visual and collaborative GitOps, freeing you from the chains of YAML while managing Kubernetes multi-cluster deployments.",
+        "Summary":"A self-service engineering platform, Meshery, is the open source, cloud native manager that enables the design and management of all Kubernetes-based infrastructure and applications (multi-cloud)",
+        "Tag": "Research",
+        "Screenshot": [
+          "/images/meshery.png",
+          "https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshery-logo-light-text-side.svg"
+      ],
+        "URL": "https://github.com/meshery/meshery",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 11",
-        "Description": "Test description 11",
-        "Tag": "Test tag 11",
-        "Screenshot": "Test screenshot 11",
-        "URL": "Test URL 11",
-        "Type": "Test Type 11"
+        "Title": "Pake",
+        "Description": "Turn any webpage into a desktop app with Rust with ease.",
+        "Summary":"Turn any webpage into a desktop app with Rust with ease.",
+        "Tag": "Research",
+        "Screenshot": [
+          "https://camo.githubusercontent.com/9b05c7b6acb44e32adea61709f9a4af5190e8dae67ad8db6f5f39790678af2be/68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f7a6f732f6b2f66612f6c6f676f2d6d6f6469666965642e706e67"
+      ],
+        "URL": "https://github.com/tw93/Pake",
+        "Type": "Research project"
       },
       {
-        "Title": "Test project 12",
-        "Description": "Test description 12",
-        "Tag": "Test tag 12",
-        "Screenshot": "Test screenshot 12",
-        "URL": "Test URL 12",
-        "Type": "Test Type 12"
+        "Title": "Supervision",
+        "Description": "We write your reusable computer vision tools. Whether you need to load your dataset from your hard drive, draw detections on an image or video, or count how many detections are in a zone. You can count on us! ",
+        "Summary":"We write your reusable computer vision tools.",
+        "Tag": "Research",
+        "Screenshot": [
+          "https://camo.githubusercontent.com/1fde92a905c9f2ab76514c464e445ffc2e60e171677ec4bb51abe324bc021ac6/68747470733a2f2f6d656469612e726f626f666c6f772e636f6d2f6f70656e2d736f757263652f7375706572766973696f6e2f72662d7375706572766973696f6e2d62616e6e65722e706e673f7570646174656441743d31363738393935393237353239"
+      ],
+        "URL": "https://github.com/roboflow/supervision",
+        "Type": "Research project"
       }
   ]
 }
