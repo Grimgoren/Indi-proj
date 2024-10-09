@@ -30,7 +30,6 @@ export default function Homepage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = async (project) => {
-    alert('Fetching project...');
     console.log("Fetching ", project);
     setSelectedProject(project);
   };

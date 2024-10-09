@@ -7,13 +7,15 @@ import filterJson from '@/components/filterJson';
 import sumJsonQuery from '@/components/sumJsonQuery';
 import readJson from '@/components/jsonRead';
 import reloadJson from '@/components/reloadJson';
+import loading from '@/components/loading';
+import $ from 'jquery';
 
 interface Project {
   Title: string
   Description: string
   Summary: string
   Tag: string
-  Screenshot: string
+  Screenshot: Array
   URL: string
   Type: string
 }
@@ -25,14 +27,32 @@ export default function Recent() {
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
   const [totalQuery, setTotalQuery] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = async (project: Project) => {
-    alert('Redirecting to main page...');
     setSelectedProject(project);
     localStorage.setItem('selectedProject', JSON.stringify(project));
     console.log('Redirecting to main page');
     router.push('/');
   };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  useEffect(() => {
+    const loadData = async () => {
+      await readJson();
+      setIsLoading(false);
+    };
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      $('#loading').fadeOut(500);
+    }
+  }, [isLoading]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -112,6 +132,7 @@ export default function Recent() {
           Kiosk
         </button>
       </div>
+      <div id="loading"></div>
       <div className="page-layout">
         <div className="content-container">
           <div className="content">

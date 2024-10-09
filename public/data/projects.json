@@ -99,7 +99,7 @@
       {
         "Title": "Meshery",
         "Description": "A self-service engineering platform, Meshery, is the open source, cloud native manager that enables the design and management of all Kubernetes-based infrastructure and applications (multi-cloud). Among other features, As an extensible platform, Meshery offers visual and collaborative GitOps, freeing you from the chains of YAML while managing Kubernetes multi-cluster deployments.",
-        "Summary":"A self-service engineering platform, Meshery, is the open source, cloud native manager that enables the design and management of all Kubernetes-based infrastructure and applications (multi-cloud)",
+        "Summary":"A self-service engineering platform, Meshery, enables the design and management of all Kubernetes-based infrastructure and applications",
         "Tag": "Research",
         "Screenshot": [
           "/images/meshery.png",

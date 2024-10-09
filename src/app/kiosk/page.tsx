@@ -5,7 +5,7 @@ interface Project {
   Description: string
   Summary: string
   Tag: string
-  Screenshot: string
+  Screenshot: Array
   URL: string
   Type: string
 }
@@ -18,6 +18,8 @@ import reloadJson from '@/components/reloadJson';
 import nextProject from '@/components/nextProject';
 import qrCode from '@/components/qrcode';
 import { useRouter } from 'next/navigation';
+import loading from '@/components/loading';
+import $ from 'jquery';
 
 export default function Kiosk() {
   const router = useRouter();
@@ -27,6 +29,7 @@ export default function Kiosk() {
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [project, setProject] = useState<Project | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = async (project: Project) => {
     alert('Redirecting to main page...');
@@ -35,6 +38,24 @@ export default function Kiosk() {
     console.log('Redirecting to main page');
     router.push('/');
   };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  useEffect(() => {
+    const loadData = async () => {
+      await readJson();
+      setIsLoading(false);
+    };
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      $('#loading').fadeOut(500);
+    }
+  }, [isLoading]);
 
   useEffect(() => {
     const loadNextProject = async () => {
@@ -140,6 +161,7 @@ return (
           Kiosk
         </button>
         </div>
+      <div id="loading"></div>
       <div className='page-layout'>
       <div className='side-content-container'>
           <div className='search-wrapper'>
@@ -162,7 +184,7 @@ return (
                     className="card-small"
                     onClick={() => handleClick(project)}
                     style={{
-                      backgroundImage: `url(${project.Screenshot})`,
+                      backgroundImage: `url(${project.Screenshot[0]})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       cursor: 'pointer'
