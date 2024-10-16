@@ -23,8 +23,8 @@ import './../../styles/fonts.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'CRediT Maker',
-  description: 'Create CRediT statements easily',
+  title: 'Research Portal',
+  description: 'Discover new projects',
 }
 
 export default function RootLayout({

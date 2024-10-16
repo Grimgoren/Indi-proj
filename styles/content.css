@@ -13,9 +13,41 @@
 .content {
   background: linear-gradient(to right, white, rgb(226, 249, 255));
   flex-grow: 1;
-  padding: 30px;
+  padding-left: 30px;
+  padding-top: 30px;
   height: 100%;
 }
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "heads heads"
+    "tagstype tagstype"
+    "col1 col2";
+  gap: 20px;
+  justify-items: auto;
+}
+
+.heads {
+  grid-area: heads;
+}
+
+.tagstype {
+  grid-area: tagstype;
+  display: flex;
+  gap: 10px;
+}
+
+.column1 {
+  grid-area: col1;
+}
+
+.column2 {
+  grid-area: col2;
+}
+
 
 .kiosk-container {
   flex-grow: 1;
@@ -37,4 +69,42 @@
 
 .mainImage {
   max-width: 300px;
+}
+
+.titleDiv {
+  font-family: 'Roboto', sans-serif;
+  font-size: 80px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 
+  -1px -1px 0 #000,  
+  1px -1px 0 #000,
+  -1px 1px 0 #000,   
+  1px 1px 0 #000;
+}
+
+.descriDiv {
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: 200;
+  color: black;
+}
+
+.linkDiv {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  color: rgb(84, 84, 255);
+}
+
+.linkDiv:hover {
+  color: rgb(0, 0, 173);
+}
+
+.tagDiv {
+  font-family: 'Roboto', sans-serif;
+}
+
+.typeDiv {
+  font-family: 'Roboto', sans-serif;
 }

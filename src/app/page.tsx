@@ -184,27 +184,49 @@ export default function Homepage() {
         </div>
         <div className="content-container">
           <div className="content">
-            {selectedProject ? (
-              <div>
-                <p><strong>{selectedProject.Title}</strong></p>
-                <p>{selectedProject.Tag}</p>
-                <p>{selectedProject.Type}</p>
-
-                {Array.isArray(selectedProject.Screenshot) && selectedProject.Screenshot.length > 0 ? (
-                  selectedProject.Screenshot.map((screenshot, i) => (
-                    <img key={i} className='mainImage' src={screenshot} alt={`${selectedProject.Title} screenshot ${i + 1}`} />
-                  ))
-                ) : (
-                  <p>No screenshots available</p>
-                )}
-
-                <p>{selectedProject.Description}</p>
-                {selectedProject.URL && <a href={selectedProject.URL}>{selectedProject.URL}</a>}
-                <canvas id="canvas"></canvas>
-              </div>
-            ) : (
-              <p>No project selected</p>
-            )}
+            <div className="content-grid">
+              {selectedProject ? (
+                <>
+                  <div className="heads titleDiv">{selectedProject.Title}</div>
+                  <div className="tagstype">
+                    <div className="tags tagDiv">
+                      <span 
+                        id="badge-dismiss-default"
+                        className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                      >
+                        {selectedProject.Tag}
+                      </span>
+                    </div>
+                    <div className="types typeDiv">
+                      <span 
+                        id="badge-dismiss-default"
+                        className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300"
+                      >
+                        {selectedProject.Type}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="column1">
+                    <div className="descriDiv">{selectedProject.Description}</div>
+                    <div className="linkDiv">
+                      {selectedProject.URL && <a href={selectedProject.URL}>{selectedProject.URL}</a>}
+                    </div>
+                  </div>
+                  <div className="column2">
+                    {Array.isArray(selectedProject.Screenshot) && selectedProject.Screenshot.length > 0 ? (
+                      selectedProject.Screenshot.map((screenshot, i) => (
+                        <img key={i} className="mainImage" src={screenshot} alt={`${selectedProject.Title} screenshot ${i + 1}`} />
+                      ))
+                    ) : (
+                      <p>No screenshots available</p>
+                    )}
+                  </div>
+                  <div className='column2'><canvas id="canvas"></canvas></div>
+                </>
+              ) : (
+                <p>No project selected</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
