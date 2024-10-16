@@ -32,7 +32,6 @@ export default function Kiosk() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = async (project: Project) => {
-    alert('Redirecting to main page...');
     setSelectedProject(project);
     localStorage.setItem('selectedProject', JSON.stringify(project));
     console.log('Redirecting to main page');
@@ -83,8 +82,14 @@ export default function Kiosk() {
 
   useEffect(() => {
     const intervalId = setInterval(async () => {
-      await reloadJson();
-    }, 50000);
+      const updatedData = await reloadJson();
+
+      if (updatedData && updatedData.Projects) {
+        setFilteredProjects(updatedData.Projects);
+      } else {
+        console.error('Failed to reload project data');
+      }
+    }, 10000);
   
     return () => clearInterval(intervalId);
   }, []);
@@ -146,21 +151,24 @@ export default function Kiosk() {
 
 return (
     <>
+    <div className='navbar-hidden-wrapper'>
       <div className='banner-wrapper'>
         <div className='banner'>Research portal</div>
-        <div className='which-page'>Kiosk</div>
+        <div className='which-page-hidden'>Kiosk</div>
       </div>
-      <div className='navbar'>
-      <button className="navbutton" onClick={() => router.push('/')}>
-          Home
-        </button>
-        <button className="navbutton" onClick={() => router.push('/recent')}>
-          Recent
-        </button>
-        <button className="navbutton" onClick={() => router.push('/kiosk')}>
-          Kiosk
-        </button>
+      
+        <div className='navbar-hidden'>
+          <button className="navbutton" onClick={() => router.push('/')}>
+            Home
+          </button>
+          <button className="navbutton" onClick={() => router.push('/recent')}>
+            Recent
+          </button>
+          <button className="navbutton" onClick={() => router.push('/kiosk')}>
+            Kiosk
+          </button>
         </div>
+      </div>
       <div id="loading"></div>
       <div className='page-layout'>
       <div className='side-content-container'>
@@ -206,7 +214,18 @@ return (
             {project ? (
               <div>
                 <strong>{project.Title}</strong>
-                <p>{project.Summary}</p>
+                <p>{project.Tag}</p>
+                <p>{project.Type}</p>
+
+                {Array.isArray(project.Screenshot) && project.Screenshot.length > 0 ? (
+                  project.Screenshot.map((screenshot, i) => (
+                    <img key={i} className='mainImage' src={screenshot} alt={`${project.Title} screenshot ${i + 1}`} />
+                  ))
+                ) : (
+                  <p>No screenshots available</p>
+                )}
+
+                <p>{project.Description}</p>
                 {project.URL && (
                   <a href={project.URL} target="_blank" rel="noopener noreferrer">
                     {project.URL}

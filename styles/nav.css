@@ -46,3 +46,51 @@
 .kiosk-container {
   padding-top: 0;
 }
+
+.which-page-hidden {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  z-index: 1;
+  opacity: 0;
+  transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+.navbar-hidden-wrapper:hover .which-page-hidden {
+  opacity: 1;
+  top: 10%;
+}
+
+.navbar-hidden-wrapper {
+  display: block;
+  padding: 0px;
+}
+
+.navbar-hidden {
+  position: relative; /* Allow animation of 'top' property */
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  background-color: rgb(149, 232, 255);
+  padding: 0 20px;
+  top: -50px; /* Start above the visible area */
+  transition: top 0.5s ease, opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease; /* Include top in transition */
+}
+
+.navbar-hidden-wrapper:hover .navbar-hidden {
+  opacity: 1;
+  max-height: 200px; /* Adjust to fit content height */
+  padding: 20px;
+  top: 0; /* Slide down to its intended position */
+}

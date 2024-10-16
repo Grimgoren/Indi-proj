@@ -62,8 +62,14 @@ export default function Homepage() {
 
   useEffect(() => {
     const intervalId = setInterval(async () => {
-      await reloadJson();
-    }, 50000);
+      const updatedData = await reloadJson();
+
+      if (updatedData && updatedData.Projects) {
+        setFilteredProjects(updatedData.Projects);
+      } else {
+        console.error('Failed to reload project data');
+      }
+    }, 10000);
   
     return () => clearInterval(intervalId);
   }, []);

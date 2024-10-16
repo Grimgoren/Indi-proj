@@ -1,8 +1,14 @@
-import readJson from './jsonRead'
+import readJson from './jsonRead';
 
 async function reloadJson() {
-    readJson()
-    console.log('Reloading the JSON file')
+    const projects = await readJson();
+    if (projects) {
+        console.log('Reloading the JSON file');
+    } else {
+        console.error('Failed to reload JSON');
+    }
+    console.log("This was reloaded: ", projects)
+    return { Projects: projects };
 }
 
-export default reloadJson
+export default reloadJson;
