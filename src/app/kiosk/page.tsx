@@ -210,36 +210,59 @@ return (
           </div>
         </div>
         <div className='content-container'>
-          <div className='content'>
-            {project ? (
-              <div>
-                <strong>{project.Title}</strong>
-                <p>{project.Tag}</p>
-                <p>{project.Type}</p>
-
-                {Array.isArray(project.Screenshot) && project.Screenshot.length > 0 ? (
-                  project.Screenshot.map((screenshot, i) => (
-                    <img key={i} className='mainImage' src={screenshot} alt={`${project.Title} screenshot ${i + 1}`} />
-                  ))
+          <div className="content">
+              <div className="content-grid">
+                {project ? (
+                  <>
+                <div className="heads1 titleQrWrapper">
+                  <div className="qr-wrapper">
+                      <canvas id="canvas"></canvas>
+                    </div>
+                  <div className="titleDiv">{project.Title}</div>
+                </div>
+                    <div className="tagstype">
+                      <div className="tags tagDiv">
+                        <span 
+                          id="badge-dismiss-default"
+                          className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                        >
+                          {project.Tag}
+                        </span>
+                      </div>
+                      <div className="types typeDiv">
+                        <span 
+                          id="badge-dismiss-default"
+                          className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300"
+                        >
+                          {project.Type}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="column1">
+                      <div className="descriDiv">{project.Description}</div>
+                      <div className="linkDiv">
+                        {project.URL && <a href={project.URL}>{project.URL}</a>}
+                      </div>
+                    </div>
+                    <div className="column2">
+                      {Array.isArray(project.Screenshot) && project.Screenshot.length > 0 ? (
+                        project.Screenshot.map((screenshot, i) => (
+                          <div key={i} className="pic-wrapper">
+                            <img className="mainImage" src={screenshot} alt={`${project.Title} screenshot ${i + 1}`} />
+                          </div>
+                        ))
+                      ) : (
+                        <p>No screenshots available</p>
+                      )}
+                    </div>
+                  </>
                 ) : (
-                  <p>No screenshots available</p>
+                  <p>No project selected</p>
                 )}
-
-                <p>{project.Description}</p>
-                {project.URL && (
-                  <a href={project.URL} target="_blank" rel="noopener noreferrer">
-                    {project.URL}
-                  </a>
-                )}
-                <canvas id="canvas"></canvas>
               </div>
-            ) : (
-              <p>Loading project...</p>
-            )}
+            </div>
           </div>
         </div>
-      </div>
-    </>
-  );
-}
-
+      </>
+    );
+  }

@@ -187,7 +187,12 @@ export default function Homepage() {
             <div className="content-grid">
               {selectedProject ? (
                 <>
-                  <div className="heads titleDiv">{selectedProject.Title}</div>
+              <div className="heads1 titleQrWrapper">
+                <div className="qr-wrapper">
+                    <canvas id="canvas"></canvas>
+                  </div>
+                <div className="titleDiv">{selectedProject.Title}</div>
+              </div>
                   <div className="tagstype">
                     <div className="tags tagDiv">
                       <span 
@@ -215,13 +220,14 @@ export default function Homepage() {
                   <div className="column2">
                     {Array.isArray(selectedProject.Screenshot) && selectedProject.Screenshot.length > 0 ? (
                       selectedProject.Screenshot.map((screenshot, i) => (
-                        <img key={i} className="mainImage" src={screenshot} alt={`${selectedProject.Title} screenshot ${i + 1}`} />
+                        <div key={i} className="pic-wrapper">
+                          <img className="mainImage" src={screenshot} alt={`${selectedProject.Title} screenshot ${i + 1}`} />
+                        </div>
                       ))
                     ) : (
                       <p>No screenshots available</p>
                     )}
                   </div>
-                  <div className='column2'><canvas id="canvas"></canvas></div>
                 </>
               ) : (
                 <p>No project selected</p>

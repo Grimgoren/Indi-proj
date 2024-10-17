@@ -13,25 +13,32 @@
 .content {
   background: linear-gradient(to right, white, rgb(226, 249, 255));
   flex-grow: 1;
-  padding-left: 30px;
-  padding-top: 30px;
+  padding: 30px;
   height: 100%;
 }
 
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 2fr 1fr;;
   grid-template-rows: auto auto 1fr;
   grid-template-areas:
-    "heads heads"
+    "heads1 heads2"
     "tagstype tagstype"
     "col1 col2";
   gap: 20px;
   justify-items: auto;
 }
 
-.heads {
-  grid-area: heads;
+.heads1 {
+  grid-area: heads1;
+  display: flex;           /* Enable Flexbox to arrange title and QR code */
+  align-items: center;     /* Vertically center the content */
+  gap: 20px;               /* Add space between title and QR code */
+}
+
+
+.heads2 {
+  grid-area: heads2;
 }
 
 .tagstype {
@@ -46,6 +53,10 @@
 
 .column2 {
   grid-area: col2;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
 }
 
 
@@ -73,7 +84,7 @@
 
 .titleDiv {
   font-family: 'Roboto', sans-serif;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: bolder;
   color: white;
   text-shadow: 
@@ -85,7 +96,7 @@
 
 .descriDiv {
   font-family: 'Roboto', sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 200;
   color: black;
 }

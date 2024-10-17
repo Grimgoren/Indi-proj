@@ -50,9 +50,11 @@
   opacity: 1;
 }
 
+/*
 .side-content-container:hover ~ .content-container {
   margin-left: 25%;
 }
+*/
 
 .content-side {
   display: grid;
