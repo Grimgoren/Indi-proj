@@ -38,6 +38,11 @@ export default function Kiosk() {
     setProject(project);
   };
 
+  const unPause = async (project: Project) => {
+    setIsPaused(false);
+    console.log("Unpausing");
+  }
+
   useEffect(() => {
     loading();
   }, []);
@@ -184,6 +189,16 @@ return (
                 value={searchQuery}
                 onChange={handleSearchChange}
               />
+              {isPaused && (
+                <div className='playButton'>
+                  <input 
+                    type="image" 
+                    style={{ maxWidth: '60px', marginTop: '10px' }} 
+                    src="/images/play (1).png"
+                    onClick={() => unPause(project)}
+                  />
+                </div>
+              )}
             </div>
             <p className='search-result'>Total Results: {totalQuery}</p>
           </div>

@@ -218,14 +218,16 @@ export default function Homepage() {
                     </div>
                   </div>
                   <div className="column2">
-                    {Array.isArray(selectedProject.Screenshot) && selectedProject.Screenshot.length > 0 ? (
+                    {selectedProject && Array.isArray(selectedProject.Screenshot) && selectedProject.Screenshot.length > 0 ? (
                       selectedProject.Screenshot.map((screenshot, i) => (
                         <div key={i} className="pic-wrapper">
-                          <img className="mainImage" src={screenshot} alt={`${selectedProject.Title} screenshot ${i + 1}`} />
+                          <img className="mainImage" src={screenshot || "/images/no-pictures.png"} alt={`${selectedProject.Title} screenshot ${i + 1}`} />
                         </div>
                       ))
                     ) : (
-                      <p>No screenshots available</p>
+                      <div className="pic-wrapper">
+                        <img className="mainImage" src="/images/no-pictures.png" alt="No pictures available" />
+                      </div>
                     )}
                   </div>
                 </>
