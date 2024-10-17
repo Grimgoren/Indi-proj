@@ -5,7 +5,7 @@
           "Description": "CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the [CRediT website](https://credit.niso.org/).",
           "Summary":"CRedit Maker helps you to create CRediT for your research papers.",
           "Tag": "Andreas Bauer",
-          "Screenshot": ["/images/robot-logo128.png"
+          "Screenshot": ["https://raw.githubusercontent.com/andreas-bauer/credit-maker/main/src/images/robot-logo128.png"
         ],
           "URL": "https://github.com/andreas-bauer/credit-maker",
           "Type": "Research project"
@@ -15,7 +15,8 @@
           "Description": "The Agents framework allows you to build AI-driven server programs that can see, hear, and speak in realtime. Your agent connects with end user devices through a LiveKit session. During that session, your agent can process text, audio, images, or video streaming from a user's device, and have an AI model generate any combination of those same modalities as output, and stream them back to the user.",
           "Summary":"The Agents framework allows you to build AI-driven server programs that can see, hear, and speak in realtime.",
           "Tag": "AI",
-          "Screenshot": ["/images/agent.png"
+          "Screenshot": ["/images/agent.png",
+          "https://github.com/livekit/agents/raw/main/.github/banner_dark.png"
         ],
           "URL": "https://github.com/livekit/agents",
           "Type": "Research project"
@@ -57,7 +58,7 @@
         "Summary":"Non profit game. For fans, by fans.",
         "Tag": "Game",
         "Screenshot": [
-          "https://pokemon-auto-chess.com/assets/ui/pokemon_autochess_final.svg"
+          "https://avatars.githubusercontent.com/u/82341301?s=280&v=4"
         ],
         "URL": "https://github.com/keldaanCommunity/pokemonAutoChess",
         "Type": "Research project"
@@ -68,7 +69,7 @@
         "Summary":"Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.",
         "Tag": "Compositor",
         "Screenshot": [
-          "/images/Hyprland.png"
+          "https://media.tenor.com/XSH2M_OiW9MAAAAi/hyprland-logo.gif"
         ],
         "URL": "https://github.com/hyprwm/Hyprland",
         "Type": "Research project"
@@ -79,8 +80,7 @@
         "Summary": "Library to build personalized AI powered by what you've seen, said, or heard.",
         "Tag": "AI",
         "Screenshot": [
-          "/images/1024x1024.png",
-          "/images/screenpipe.png"
+          "https://private-user-images.githubusercontent.com/25003283/357953213-d3b1de26-c3c0-4c84-b9c4-b03213b97a30.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjkxODIwMjUsIm5iZiI6MTcyOTE4MTcyNSwicGF0aCI6Ii8yNTAwMzI4My8zNTc5NTMyMTMtZDNiMWRlMjYtYzNjMC00Yzg0LWI5YzQtYjAzMjEzYjk3YTMwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMTclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDE3VDE2MTUyNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNiZTQ0YWUwMDM3YzVkOGY1MGZjMjM1MGRmMDA0YjgyZjU5ZGMxMjM4N2EyZGY2ZWNiNjRiYTk2ODI5MjQxMzImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.HI2_KEKDmcQWGGC7_xpAIIauJyxVSz5j7xLfyW7Kin8"
         ],
         "URL": "https://github.com/mediar-ai/screenpipe",
         "Type": "Research project"
@@ -102,8 +102,7 @@
         "Summary":"A self-service engineering platform, Meshery, enables the design and management of all Kubernetes-based infrastructure and applications",
         "Tag": "Platform",
         "Screenshot": [
-          "/images/meshery.png",
-          "https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshery-logo-light-text-side.svg"
+          "https://meshery.io/assets/images/logos/meshery-logo.png"
       ],
         "URL": "https://github.com/meshery/meshery",
         "Type": "Research project"
@@ -124,8 +123,8 @@
         "Description": "We write your reusable computer vision tools. Whether you need to load your dataset from your hard drive, draw detections on an image or video, or count how many detections are in a zone. You can count on us! ",
         "Summary":"We write your reusable computer vision tools.",
         "Tag": "Tools",
-        "Screenshot": [
-          "https://camo.githubusercontent.com/1fde92a905c9f2ab76514c464e445ffc2e60e171677ec4bb51abe324bc021ac6/68747470733a2f2f6d656469612e726f626f666c6f772e636f6d2f6f70656e2d736f757263652f7375706572766973696f6e2f72662d7375706572766973696f6e2d62616e6e65722e706e673f7570646174656441743d31363738393935393237353239"
+        "Screenshot": ["/images/fox.png",
+          "https://media.roboflow.com/open-source/supervision/rf-supervision-banner.png?updatedAt=1678995927529"
       ],
         "URL": "https://github.com/roboflow/supervision",
         "Type": "Research project"
