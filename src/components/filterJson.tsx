@@ -5,7 +5,7 @@ interface Project {
   Description: string
   Summary: string
   Tag: string
-  Screenshot: string
+  Screenshot: Array<string[]>
   URL: string
   Type: string
 }

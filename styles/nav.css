@@ -78,19 +78,19 @@
 }
 
 .navbar-hidden {
-  position: relative; /* Allow animation of 'top' property */
+  position: relative;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   background-color: rgb(149, 232, 255);
   padding: 0 20px;
-  top: -50px; /* Start above the visible area */
-  transition: top 0.5s ease, opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease; /* Include top in transition */
+  top: -50px; 
+  transition: top 0.5s ease, opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
 }
 
 .navbar-hidden-wrapper:hover .navbar-hidden {
   opacity: 1;
-  max-height: 200px; /* Adjust to fit content height */
+  max-height: 200px;
   padding: 20px;
-  top: 0; /* Slide down to its intended position */
+  top: 0;
 }

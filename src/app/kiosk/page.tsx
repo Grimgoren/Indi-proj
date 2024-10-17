@@ -5,7 +5,7 @@ interface Project {
   Description: string
   Summary: string
   Tag: string
-  Screenshot: Array
+  Screenshot: Array<string[]>
   URL: string
   Type: string
 }
@@ -30,12 +30,12 @@ export default function Kiosk() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
   const handleClick = async (project: Project) => {
     setSelectedProject(project);
-    localStorage.setItem('selectedProject', JSON.stringify(project));
-    console.log('Redirecting to main page');
-    router.push('/');
+    setIsPaused(true);
+    setProject(project);
   };
 
   useEffect(() => {
@@ -63,15 +63,19 @@ export default function Kiosk() {
         setProject(result);
       }
     };
-
-    loadNextProject();
-
-    const intervalId = setInterval(() => {
+  
+    if (!isPaused) {
       loadNextProject();
-    }, 4000);
-
-    return () => clearInterval(intervalId);
-  }, []);
+  
+      const intervalId = setInterval(() => {
+        if (!isPaused) {
+          loadNextProject();
+        }
+      }, 4000);
+  
+      return () => clearInterval(intervalId);
+    }
+  }, [isPaused]);
 
   useEffect(() => {
     const loadData = async () => {
