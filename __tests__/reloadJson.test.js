@@ -9,8 +9,17 @@ describe('reloadJson', () => {
     jest.useFakeTimers()
   })
 
-  it('should call readJson after 10 minutes', () => {
-    reloadJson()
+  beforeEach(() => {
+    readJson.mockResolvedValue({
+      Projects: [
+        { Title: 'Project A', Description: 'Description A' },
+        { Title: 'Project B', Description: 'Description B' }
+      ]
+    })
+  })
+
+  it('should call readJson after 10 minutes', async () => {
+    await reloadJson()
 
     jest.advanceTimersByTime(600000)
 
