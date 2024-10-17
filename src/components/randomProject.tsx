@@ -1,4 +1,4 @@
-async function randomProject {
+async function randomProject() {
   try {
     const response = await fetch('data/projects.json')
     const data = await response.json()

@@ -20,6 +20,7 @@ import qrCode from '@/components/qrcode';
 import { useRouter } from 'next/navigation';
 import loading from '@/components/loading';
 import $ from 'jquery';
+import React from 'react';
 
 export default function Kiosk() {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function Kiosk() {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [totalQuery, setTotalQuery] = useState(0);
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [, setSelectedProject] = useState<Project | null>(null);
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
@@ -38,10 +39,10 @@ export default function Kiosk() {
     setProject(project);
   };
 
-  const unPause = async (project: Project) => {
+  const unPause = async () => {
     setIsPaused(false);
     console.log("Unpausing");
-  }
+  };
 
   useEffect(() => {
     loading();

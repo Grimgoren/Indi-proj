@@ -9,6 +9,7 @@ import readJson from '@/components/jsonRead';
 import reloadJson from '@/components/reloadJson';
 import loading from '@/components/loading';
 import $ from 'jquery';
+import React from 'react';
 
 interface Project {
   Title: string
@@ -22,7 +23,7 @@ interface Project {
 
 export default function Recent() {
   const router = useRouter();
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [, setSelectedProject] = useState<Project | null>(null);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);

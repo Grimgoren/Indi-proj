@@ -19,6 +19,7 @@ import qrCode from '@/components/qrcode';
 import { useRouter } from 'next/navigation';
 import loading from '@/components/loading';
 import $ from 'jquery';
+import React from 'react';
 
 export default function Homepage() {
   const router = useRouter();

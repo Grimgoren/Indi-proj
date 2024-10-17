@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function SelectProject({ project, children }) {
-  const [showThis, setShowThis] = useState(null);
+  const [, setShowThis] = useState(null);
   const handleClick = async () => {
     console.log("Fetching ", project);
     setShowThis(project);
