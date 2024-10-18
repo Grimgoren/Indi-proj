@@ -25,6 +25,7 @@
   aspect-ratio: 1 / 1;
   max-width: 330px;
   overflow: hidden;
+  transition: box-shadow 0.3s ease 
 }
 
 .card-small .overlay {
@@ -35,6 +36,15 @@
   bottom: 0;
   background-color: #ffffffc7;
   z-index: 1;
+  transition: background-color 0.3s ease 
+}
+
+.card-small:hover .overlay {
+  background-color: rgba(149, 232, 255, 0.503);
+}
+
+.card-small:hover {
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.333);
 }
 
 .card-small-title {
@@ -74,6 +84,7 @@
   aspect-ratio: 1 / 1;
   max-width: 400px;
   overflow: hidden;
+  transition: box-shadow 0.3s ease 
 }
 
 .card .overlay {
@@ -84,6 +95,15 @@
   bottom: 0;
   background-color: #ffffffc7;
   z-index: 1;
+  transition: background-color 0.3s ease 
+}
+
+.card:hover .overlay {
+  background-color: rgba(149, 232, 255, 0.503);
+}
+
+.card:hover {
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.333);
 }
 
 .card img {

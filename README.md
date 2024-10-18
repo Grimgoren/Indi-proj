@@ -5,17 +5,17 @@ Research Portal is an application which allows you to add and browse projects wh
 <p align="center"><img src="readme.png"></p>
 
 How to Use
-Prerequisites
-TODO: Explain which steps and dependencies are required to run and build the project (e.g., pip install -r requirements.txt)
+To install and use the project simply download it and start it with "npm install" and "npm run dev"
 
 Build
-TODO: Explain how the whole project can be build.
+To build the project use npm run build
 
 Test
-TODO: Explain how unit- or integreation tests can be executed.
+To run unit tests simply type npm run tests
 
 Run
-TODO: Explain how to run the project (client, server etc.).
+npm run dev and go to http://localhost:3000/
 
 License
-TODO: Add license and copyright notice.
+Copyright © 2024 Adam Grimmehed. All rights reserved.
+

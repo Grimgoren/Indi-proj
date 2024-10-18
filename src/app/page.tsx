@@ -1,13 +1,13 @@
 'use client';
 
 interface Project {
-  Title: string
-  Description: string
-  Summary: string
-  Tag: string
-  Screenshot: Array<string[]>
-  URL: string
-  Type: string
+  Title: string;
+  Description: string;
+  Summary: string;
+  Tag: string[];
+  Screenshot: string[];
+  URL: string;
+  Type: string;
 }
 
 import { useState, useEffect } from 'react';
@@ -30,7 +30,7 @@ export default function Homepage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleClick = async (project) => {
+  const handleClick = async (project: Project) => {
     console.log("Fetching ", project);
     setSelectedProject(project);
   };
@@ -64,12 +64,12 @@ export default function Homepage() {
   useEffect(() => {
     const intervalId = setInterval(async () => {
       const updatedData = await reloadJson();
-  
+
       if (updatedData && updatedData.Projects) {
         setFilteredProjects(updatedData.Projects);
         if (selectedProject) {
           const updatedProject = updatedData.Projects.find(
-            (project) => project.Title === selectedProject.Title
+            (project: Project) => project.Title === selectedProject.Title
           );
           if (updatedProject) {
             setSelectedProject(updatedProject);
@@ -79,7 +79,7 @@ export default function Homepage() {
         console.error('Failed to reload project data');
       }
     }, 10000);
-  
+
     return () => clearInterval(intervalId);
   }, [selectedProject]);
 

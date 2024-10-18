@@ -1,42 +1,43 @@
-import sumJsonQuery from './sumJsonQuery'
+import sumJsonQuery from './sumJsonQuery';
 
 interface Project {
-  Title: string
-  Description: string
-  Summary: string
-  Tag: string
-  Screenshot: Array<string[]>
-  URL: string
-  Type: string
+  Title: string;
+  Description: string;
+  Summary: string;
+  Tag: string[];
+  Screenshot: string[];
+  URL: string;
+  Type: string;
 }
 
 async function filterJson(
   query: string
 ): Promise<{ filteredProjects: Project[]; totalQuery: number } | null> {
   try {
-    const response = await fetch('/data/projects.json')
-    const data = await response.json()
+    const response = await fetch('/data/projects.json');
+    const data = await response.json();
 
-    const projects: Project[] = data.Projects
+    const projects: Project[] = data.Projects;
 
     const filteredProjects = projects.filter((project: Project) => {
+      const lowerQuery = query.toLowerCase();
       return (
-        project.Title.includes(query) ||
-        project.Screenshot.includes(query) ||
-        project.Tag.includes(query) ||
-        project.Description.includes(query) ||
-        project.URL.includes(query) ||
-        project.Type.includes(query)
-      )
-    })
+        project.Title.toLowerCase().includes(lowerQuery) ||
+        project.Screenshot.some((screenshot) => screenshot.toLowerCase().includes(lowerQuery)) ||
+        project.Tag.some((tag) => tag.toLowerCase().includes(lowerQuery)) ||
+        project.Description.toLowerCase().includes(lowerQuery) ||
+        project.URL.toLowerCase().includes(lowerQuery) ||
+        project.Type.toLowerCase().includes(lowerQuery)
+      );
+    });
 
-    const totalQuery = await sumJsonQuery(filteredProjects)
+    const totalQuery = await sumJsonQuery(filteredProjects);
 
-    return { filteredProjects, totalQuery }
+    return { filteredProjects, totalQuery };
   } catch (error) {
-    console.error('Error in filterJson function:', error)
-    return null
+    console.error('Error in filterJson function:', error);
+    return null;
   }
 }
 
-export default filterJson
+export default filterJson;

@@ -1,11 +1,11 @@
 interface Project {
-  Title: string
-  Description: string
-  Summary: string
-  Tag: string
-  Screenshot: Array<string[]>
-  URL: string
-  Type: string
+  Title: string;
+  Description: string;
+  Summary: string;
+  Tag: string[];
+  Screenshot: string[];
+  URL: string;
+  Type: string;
 }
 
 async function sumJsonQuery(filteredProjects: Project[]): Promise<number> {

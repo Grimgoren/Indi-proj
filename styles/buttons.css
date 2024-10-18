@@ -18,6 +18,8 @@
   1px -1px 0 #000,
   -1px 1px 0 #000,   
   1px 1px 0 #000;
+  z-index: 6;
+  position: relative;
 }
 
 .navbutton:hover {

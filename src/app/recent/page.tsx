@@ -12,13 +12,13 @@ import $ from 'jquery';
 import React from 'react';
 
 interface Project {
-  Title: string
-  Description: string
-  Summary: string
-  Tag: string
-  Screenshot: Array<string[]>
-  URL: string
-  Type: string
+  Title: string;
+  Description: string;
+  Summary: string;
+  Tag: string[];
+  Screenshot: string[];
+  URL: string;
+  Type: string;
 }
 
 export default function Recent() {

@@ -1,13 +1,13 @@
 'use client';
 
 interface Project {
-  Title: string
-  Description: string
-  Summary: string
-  Tag: string
-  Screenshot: Array<string[]>
-  URL: string
-  Type: string
+  Title: string;
+  Description: string;
+  Summary: string;
+  Tag: string[];
+  Screenshot: string[];
+  URL: string;
+  Type: string;
 }
 
 import { useState, useEffect } from 'react';
@@ -101,7 +101,7 @@ export default function Kiosk() {
         setFilteredProjects(updatedData.Projects);
         if (project) {
           const updatedProject = updatedData.Projects.find(
-            (p) => p.Title === project.Title
+            (p: Project) => p.Title === project.Title
           );
           if (updatedProject) {
             setProject(updatedProject);
@@ -114,7 +114,6 @@ export default function Kiosk() {
   
     return () => clearInterval(intervalId);
   }, [project]);
-  
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -160,7 +159,7 @@ export default function Kiosk() {
         
         const canvas = document.getElementById('canvas') as HTMLCanvasElement;
         if (canvas) {
-          await qrCode(projURL, canvas);
+          await qrCode(projURL);
         }
       }
     };
@@ -208,7 +207,7 @@ return (
                     type="image" 
                     style={{ maxWidth: '60px', marginTop: '10px' }} 
                     src="/images/play (1).png"
-                    onClick={() => unPause(project)}
+                    onClick={() => unPause()}
                   />
                 </div>
               ) : (
@@ -217,7 +216,7 @@ return (
                     type="image"
                     style={{ maxWidth: '60px', marginTop: '10px' }}
                     src="/images/columns.png"
-                    onClick={() => pauseIt(project)}
+                    onClick={() => pauseIt()}
                   />
                 </div>
               )}
