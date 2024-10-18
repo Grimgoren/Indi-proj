@@ -31,6 +31,8 @@ export default function Kiosk() {
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [, setIntervalId] = useState<number | null>(null);
 
   const handleClick = async (project: Project) => {
     setIsPaused(true);
@@ -169,6 +171,25 @@ export default function Kiosk() {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
+
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => {
+        return project && Array.isArray(project.Screenshot)
+          ? (prevIndex + 1) % project.Screenshot.length
+          : 0;
+      });
+    }, 3000) as unknown as number;
+
+    setIntervalId(id);
+
+    return () => {
+      if (id) {
+        clearInterval(id);
+      }
+    };
+  }, [project]);
 
 return (
     <>
@@ -316,17 +337,21 @@ return (
                       </div>
                     </div>
                     <div className="column2">
-                      {Array.isArray(project.Screenshot) && project.Screenshot.length > 0 ? (
-                        project.Screenshot.map((screenshot, i) => (
-                          <div key={i} className="pic-wrapper">
-                            <img className="mainImage" src={screenshot} alt={`${project.Title} screenshot ${i + 1}`} />
-                          </div>
-                        ))
-                      ) : (
-                        <p>No screenshots available</p>
-                      )}
-                    </div>
-                  </>
+                    {project && Array.isArray(project.Screenshot) && project.Screenshot.length > 0 ? (
+                      <div className="pic-wrapper">
+                        <img
+                          className="mainImage"
+                          src={project.Screenshot[currentImageIndex] || "/images/no-pictures.png"}
+                          alt={`${project.Title} screenshot ${currentImageIndex + 1}`}
+                        />
+                      </div>
+                    ) : (
+                      <div className="pic-wrapper">
+                        <img className="mainImage" src="/images/no-pictures.png" alt="No pictures available" />
+                      </div>
+                    )}
+                  </div>
+                </>
                 ) : (
                   <p>No project selected</p>
                 )}

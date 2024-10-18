@@ -29,6 +29,8 @@ export default function Homepage() {
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [, setIntervalId] = useState<number | null>(null);
 
   const handleClick = async (project: Project) => {
     console.log("Fetching ", project);
@@ -133,6 +135,24 @@ export default function Homepage() {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => {
+        return selectedProject && Array.isArray(selectedProject.Screenshot)
+          ? (prevIndex + 1) % selectedProject.Screenshot.length
+          : 0;
+      });
+    }, 3000) as unknown as number;
+
+    setIntervalId(id);
+
+    return () => {
+      if (id) {
+        clearInterval(id);
+      }
+    };
+  }, [selectedProject]);
 
   return (
     <>
@@ -259,11 +279,13 @@ export default function Homepage() {
                   </div>
                   <div className="column2">
                     {selectedProject && Array.isArray(selectedProject.Screenshot) && selectedProject.Screenshot.length > 0 ? (
-                      selectedProject.Screenshot.map((screenshot, i) => (
-                        <div key={i} className="pic-wrapper">
-                          <img className="mainImage" src={screenshot || "/images/no-pictures.png"} alt={`${selectedProject.Title} screenshot ${i + 1}`} />
-                        </div>
-                      ))
+                      <div className="pic-wrapper">
+                        <img
+                          className="mainImage"
+                          src={selectedProject.Screenshot[currentImageIndex] || "/images/no-pictures.png"}
+                          alt={`${selectedProject.Title} screenshot ${currentImageIndex + 1}`}
+                        />
+                      </div>
                     ) : (
                       <div className="pic-wrapper">
                         <img className="mainImage" src="/images/no-pictures.png" alt="No pictures available" />

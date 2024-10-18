@@ -26,8 +26,7 @@
         "Description": "Firecrawl is an API service that takes a URL, crawls it, and converts it into clean markdown or structured data. We crawl all accessible subpages and give you clean data for each. No sitemap required. Check out our documentation.",
         "Summary":"Firecrawl is an API service that takes a URL, crawls it, and converts it into clean markdown or structured data.",
         "Tag": ["API"],
-        "Screenshot": ["https://raw.githubusercontent.com/mendableai/firecrawl/main/img/firecrawl_logo.png"
-      ],
+        "Screenshot": ["https://raw.githubusercontent.com/mendableai/firecrawl/main/img/firecrawl_logo.png"],
         "URL": "https://github.com/mendableai/firecrawl",
         "Type": "Research project"
       },

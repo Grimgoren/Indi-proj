@@ -11,7 +11,7 @@ To install and use the project simply download it and start it with "npm install
 To build the project use npm run build
 
 # Test
-To run unit tests simply type npm run tests
+To run unit tests simply type npm run test
 
 # Run
 npm run dev and go to http://localhost:3000/
