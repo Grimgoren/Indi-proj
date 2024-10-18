@@ -156,6 +156,7 @@ export default function Homepage() {
 
   return (
     <>
+    <div className="main-container">
       <div className='banner-wrapper'>
         <div className='banner'>Research portal</div>
         <div className='which-page'>Home</div>
@@ -300,6 +301,7 @@ export default function Homepage() {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 }
