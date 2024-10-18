@@ -4,18 +4,18 @@ Research Portal is an application which allows you to add and browse projects wh
 
 <p align="center"><img src="readme.png"></p>
 
-How to Use
+# How to Use
 To install and use the project simply download it and start it with "npm install" and "npm run dev"
 
-Build
+# Build
 To build the project use npm run build
 
-Test
+# Test
 To run unit tests simply type npm run tests
 
-Run
+# Run
 npm run dev and go to http://localhost:3000/
 
-License
+# License
 Copyright © 2024 Adam Grimmehed. All rights reserved.
 
