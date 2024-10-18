@@ -55,8 +55,13 @@
   position: relative;
   z-index: 2;
   text-align: left;
-  color: black;
+  color: rgb(255, 255, 255);
   font-size: 20px;
+  text-shadow: 
+  -1px -1px 0 #000,  
+  1px -1px 0 #000,
+  -1px 1px 0 #000,   
+  1px 1px 0 #000;
 }
 
 .card {
@@ -105,6 +110,29 @@
   position: relative;
   z-index: 2;
   text-align: left;
-  color: black;
+  color: rgb(255, 255, 255);
   font-size: 20px;
+  text-shadow: 
+  -1px -1px 0 #000,  
+  1px -1px 0 #000,
+  -1px 1px 0 #000,   
+  1px 1px 0 #000;
+}
+
+.tagDiv-card-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tagDiv-card {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+  z-index: 2;
 }

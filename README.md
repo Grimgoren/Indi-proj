@@ -1,27 +1,21 @@
-# CRediT Maker
+# Research Portal
 
-<p align="center"><img src="./src/images/robot-logo128.png"></p>
+Research Portal is an application which allows you to add and browse projects which then can be displayed in a general website formate or a tv/kiosk formate designed to auto browse though projects.
 
-CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers.
-To learn more about CRediT, visit the [CRediT website](https://credit.niso.org/).
+<p align="center"><img src="readme.png"></p>
 
-<p align="center"><img src="screenshot.png"></p>
+How to Use
+Prerequisites
+TODO: Explain which steps and dependencies are required to run and build the project (e.g., pip install -r requirements.txt)
 
-Link to hosted version:
-[https://andreas-bauer.github.io/credit-maker/](https://andreas-bauer.github.io/credit-maker/)
+Build
+TODO: Explain how the whole project can be build.
 
-## Getting Started
+Test
+TODO: Explain how unit- or integreation tests can be executed.
 
-First, run the development server:
+Run
+TODO: Explain how to run the project (client, server etc.).
 
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## License
-
-Copyright © 2024 Andreas Bauer
-
-This work (source code) is licensed under [MIT](./LICENSE).
+License
+TODO: Add license and copyright notice.

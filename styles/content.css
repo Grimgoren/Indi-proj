@@ -5,7 +5,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: 20px;
-  width: 100%;
+  max-width: 90%;
   transition: all 0.3s ease;
   background: linear-gradient(to right, white, rgb(226, 249, 255));
 }
@@ -31,9 +31,9 @@
 
 .heads1 {
   grid-area: heads1;
-  display: flex;           /* Enable Flexbox to arrange title and QR code */
-  align-items: center;     /* Vertically center the content */
-  gap: 20px;               /* Add space between title and QR code */
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 

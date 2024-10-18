@@ -28,13 +28,11 @@ export default function Kiosk() {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [totalQuery, setTotalQuery] = useState(0);
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
-  const [, setSelectedProject] = useState<Project | null>(null);
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
 
   const handleClick = async (project: Project) => {
-    setSelectedProject(project);
     setIsPaused(true);
     setProject(project);
   };
@@ -43,6 +41,11 @@ export default function Kiosk() {
     setIsPaused(false);
     console.log("Unpausing");
   };
+
+  const pauseIt = async () => {
+    setIsPaused(true);
+    console.log("Pausing");
+  }
 
   useEffect(() => {
     loading();
@@ -93,16 +96,25 @@ export default function Kiosk() {
   useEffect(() => {
     const intervalId = setInterval(async () => {
       const updatedData = await reloadJson();
-
+  
       if (updatedData && updatedData.Projects) {
         setFilteredProjects(updatedData.Projects);
+        if (project) {
+          const updatedProject = updatedData.Projects.find(
+            (p) => p.Title === project.Title
+          );
+          if (updatedProject) {
+            setProject(updatedProject);
+          }
+        }
       } else {
         console.error('Failed to reload project data');
       }
     }, 10000);
   
     return () => clearInterval(intervalId);
-  }, []);
+  }, [project]);
+  
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -190,7 +202,7 @@ return (
                 value={searchQuery}
                 onChange={handleSearchChange}
               />
-              {isPaused && (
+              {isPaused ? (
                 <div className='playButton'>
                   <input 
                     type="image" 
@@ -199,33 +211,66 @@ return (
                     onClick={() => unPause(project)}
                   />
                 </div>
+              ) : (
+                <div className='pauseButton'>
+                  <input
+                    type="image"
+                    style={{ maxWidth: '60px', marginTop: '10px' }}
+                    src="/images/columns.png"
+                    onClick={() => pauseIt(project)}
+                  />
+                </div>
               )}
             </div>
             <p className='search-result'>Total Results: {totalQuery}</p>
           </div>
           <div className='content-side'>
-            <div className='card-grid-side'>
-              {filteredProjects.length > 0 ? (
-                filteredProjects.map((project, index) => (
-                  <div
-                    key={index}
-                    className="card-small"
-                    onClick={() => handleClick(project)}
-                    style={{
-                      backgroundImage: `url(${project.Screenshot[0]})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <div className="overlay"></div>
-                    <p className='card-small-title'>{project.Title}</p>
-                    <p className='card-small-sum'>{project.Summary}</p>
-                  </div>
-                ))
-              ) : (
-                <p>No projects found</p>
-              )}
+          <div className='card-grid-side'>
+                {filteredProjects.length > 0 ? (
+                  filteredProjects.map((project, index) => (
+                    <div
+                      key={index}
+                      className="card-small"
+                      onClick={() => handleClick(project)}
+                      style={{
+                        backgroundImage: `url(${project.Screenshot[0]})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <div className="overlay"></div>
+                      <p className='card-small-title'>{project.Title}</p>
+                      <p className='card-small-sum'>{project.Summary}</p>
+                      <div className='tagDiv-card-wrapper'>
+                        <div className='tagDiv-card'>
+                          {Array.isArray(project.Tag) ? (
+                            project.Tag.map((tag, index) => (
+                              <span 
+                                key={index}
+                                id="badge-dismiss-default"
+                                className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                              >
+                                {tag}
+                              </span>
+                            ))
+                          ) : project.Tag ? (
+                            <span
+                              id="badge-dismiss-default"
+                              className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                            >
+                              {project.Tag}
+                            </span>
+                          ) : (
+                            <span>No tags available</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>No projects found</p>
+                )}
             </div>
           </div>
         </div>
@@ -242,13 +287,20 @@ return (
                 </div>
                     <div className="tagstype">
                       <div className="tags tagDiv">
-                        <span 
-                          id="badge-dismiss-default"
-                          className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
-                        >
-                          {project.Tag}
-                        </span>
-                      </div>
+                        {Array.isArray(project?.Tag) && project.Tag.length > 0 ? (
+                        project.Tag.map((tag, index) => (
+                          <span 
+                            key={index}
+                            id="badge-dismiss-default"
+                            className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                          >
+                            {tag}
+                          </span>
+                        ))
+                      ) : (
+                        <span>No tags available</span>
+                      )}
+                    </div>
                       <div className="types typeDiv">
                         <span 
                           id="badge-dismiss-default"

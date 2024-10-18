@@ -64,16 +64,24 @@ export default function Homepage() {
   useEffect(() => {
     const intervalId = setInterval(async () => {
       const updatedData = await reloadJson();
-
+  
       if (updatedData && updatedData.Projects) {
         setFilteredProjects(updatedData.Projects);
+        if (selectedProject) {
+          const updatedProject = updatedData.Projects.find(
+            (project) => project.Title === selectedProject.Title
+          );
+          if (updatedProject) {
+            setSelectedProject(updatedProject);
+          }
+        }
       } else {
         console.error('Failed to reload project data');
       }
     }, 10000);
   
     return () => clearInterval(intervalId);
-  }, []);
+  }, [selectedProject]);
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -158,28 +166,52 @@ export default function Homepage() {
             <p className='search-result'>Total Results: {totalQuery}</p>
           </div>
           <div className='content-side'>
-            <div className='card-grid-side'>
-              {filteredProjects.length > 0 ? (
-                filteredProjects.map((project, index) => (
-                  <div
-                    key={index}
-                    className="card-small"
-                    onClick={() => handleClick(project)}
-                    style={{
-                      backgroundImage: `url(${project.Screenshot[0]})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <div className="overlay"></div>
-                    <p className='card-small-title'>{project.Title}</p>
-                    <p className='card-small-sum'>{project.Summary}</p>
-                  </div>
-                ))
-              ) : (
-                <p>No projects found</p>
-              )}
+          <div className='card-grid-side'>
+                {filteredProjects.length > 0 ? (
+                  filteredProjects.map((project, index) => (
+                    <div
+                      key={index}
+                      className="card-small"
+                      onClick={() => handleClick(project)}
+                      style={{
+                        backgroundImage: `url(${project.Screenshot[0]})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <div className="overlay"></div>
+                      <p className='card-small-title'>{project.Title}</p>
+                      <p className='card-small-sum'>{project.Summary}</p>
+                      <div className='tagDiv-card-wrapper'>
+                        <div className='tagDiv-card'>
+                          {Array.isArray(project.Tag) ? (
+                            project.Tag.map((tag, index) => (
+                              <span 
+                                key={index}
+                                id="badge-dismiss-default"
+                                className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                              >
+                                {tag}
+                              </span>
+                            ))
+                          ) : project.Tag ? (
+                            <span
+                              id="badge-dismiss-default"
+                              className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                            >
+                              {project.Tag}
+                            </span>
+                          ) : (
+                            <span>No tags available</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>No projects found</p>
+                )}
             </div>
           </div>
         </div>
@@ -195,14 +227,21 @@ export default function Homepage() {
                 <div className="titleDiv">{selectedProject.Title}</div>
               </div>
                   <div className="tagstype">
-                    <div className="tags tagDiv">
-                      <span 
-                        id="badge-dismiss-default"
-                        className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
-                      >
-                        {selectedProject.Tag}
-                      </span>
-                    </div>
+                  <div className="tags tagDiv">
+                    {Array.isArray(selectedProject?.Tag) && selectedProject.Tag.length > 0 ? (
+                      selectedProject.Tag.map((tag, index) => (
+                        <span 
+                          key={index}
+                          id="badge-dismiss-default"
+                          className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                        >
+                          {tag}
+                        </span>
+                      ))
+                    ) : (
+                      <span>No tags available</span>
+                    )}
+                  </div>
                     <div className="types typeDiv">
                       <span 
                         id="badge-dismiss-default"

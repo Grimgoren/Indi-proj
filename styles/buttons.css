@@ -23,3 +23,19 @@
 .navbutton:hover {
   background-color: rgb(149, 232, 255);
 }
+
+.playButton {
+  transition: brightness 0.5s ease ;
+}
+
+.playButton:hover input {
+  filter: brightness(0.8);
+}
+
+.pauseButton {
+  transition: brightness 0.5s ease ;
+}
+
+.pauseButton:hover input {
+  filter: brightness(0.8);
+}

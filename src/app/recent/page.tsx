@@ -155,31 +155,54 @@ export default function Recent() {
               <p className='search-result'>Total Results: {totalQuery}</p>
             </div>
             <div className="card-container">
-  <div className='card-grid'>
-    {filteredProjects.length > 0 ? (
-      filteredProjects.map((project, index) => (
-        <div
-          key={index}
-          className="card"
-          onClick={() => handleClick(project)}
-          style={{
-            backgroundImage: `url(${project.Screenshot[0]})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            cursor: 'pointer'
-          }}
-        >
-          <div className="overlay"></div>
-          <p className='card-title'>{project.Title}</p>
-          <p className='card-sum'>{project.Summary}</p>
-        </div>
-      ))
-    ) : (
-      <p>No projects found</p>
-    )}
-  </div>
-</div>
-
+              <div className='card-grid'>
+                {filteredProjects.length > 0 ? (
+                  filteredProjects.map((project, index) => (
+                    <div
+                      key={index}
+                      className="card"
+                      onClick={() => handleClick(project)}
+                      style={{
+                        backgroundImage: `url(${project.Screenshot[0]})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <div className="overlay"></div>
+                      <p className='card-title'>{project.Title}</p>
+                      <p className='card-sum'>{project.Summary}</p>
+                      <div className='tagDiv-card-wrapper'>
+                        <div className='tagDiv-card'>
+                          {Array.isArray(project.Tag) ? (
+                            project.Tag.map((tag, index) => (
+                              <span 
+                                key={index}
+                                id="badge-dismiss-default"
+                                className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                              >
+                                {tag}
+                              </span>
+                            ))
+                          ) : project.Tag ? (
+                            <span
+                              id="badge-dismiss-default"
+                              className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300"
+                            >
+                              {project.Tag}
+                            </span>
+                          ) : (
+                            <span>No tags available</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>No projects found</p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
