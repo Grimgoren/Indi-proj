@@ -17,5 +17,7 @@ To run unit tests simply type npm run test
 npm run dev and go to http://localhost:3000/
 
 # License
-Copyright © 2024 Adam Grimmehed. All rights reserved.
+Copyright © 2024 Adam Grimmehed
+
+This work (source code) is licensed under MIT.
 
