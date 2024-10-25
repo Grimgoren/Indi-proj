@@ -19,5 +19,5 @@ npm run dev and go to http://localhost:3000/
 # License
 Copyright © 2024 Adam Grimmehed
 
-This work (source code) is licensed under MIT.
+This work (source code) is licensed under [MIT](https://github.com/Grimgoren/Indi-proj?tab=MIT-1-ov-file).
 
