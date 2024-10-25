@@ -82,7 +82,7 @@ export default function Kiosk() {
         if (!isPaused) {
           loadNextProject();
         }
-      }, 4000);
+      }, 15000);
   
       return () => clearInterval(intervalId);
     }
