@@ -7,6 +7,7 @@ global.fetch = jest.fn(() =>
       Promise.resolve({
         Projects: [
           {
+            Id: "100",
             Title: 'Searchthis',
             Description: 'Test',
             Tag: ['Tag1'],
@@ -15,6 +16,7 @@ global.fetch = jest.fn(() =>
             Type: 'Student',
           },
           {
+            Id: "200",
             Title: 'OtherProject',
             Description: 'Test 2',
             Tag: ['Tag2'],
@@ -38,18 +40,20 @@ describe('filterJson', () => {
 
     expect(data.filteredProjects).toEqual([
       {
+        Id: "100",
         Title: 'Searchthis',
         Description: 'Test',
-        Tag: ['Tag1'], // Updated to match the array structure
-        Screenshot: ['image.png'], // Updated to match the array structure
+        Tag: ['Tag1'],
+        Screenshot: ['image.png'],
         URL: 'https://example.com',
         Type: 'Student',
       },
       {
+        Id: "200",
         Title: 'OtherProject',
         Description: 'Test 2',
-        Tag: ['Tag2'], // Updated to match the array structure
-        Screenshot: ['image2.png'], // Updated to match the array structure
+        Tag: ['Tag2'],
+        Screenshot: ['image2.png'],
         URL: 'https://example2.com',
         Type: 'Research',
       },

@@ -1,6 +1,7 @@
 {
   "Projects": [
       {
+          "Id": 1,
           "Title": "Credit-maker",
           "Description": "CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the [CRediT website](https://credit.niso.org/).",
           "Summary":"CRedit Maker helps you to create CRediT for your research papers.",
@@ -11,6 +12,7 @@
           "Type": "Research project"
       },
       {
+          "Id": 2,
           "Title": "Agents",
           "Description": "The Agents framework allows you to build AI-driven server programs that can see, hear, and speak in realtime. Your agent connects with end user devices through a LiveKit session. During that session, your agent can process text, audio, images, or video streaming from a user's device, and have an AI model generate any combination of those same modalities as output, and stream them back to the user.",
           "Summary":"The Agents framework allows you to build AI-driven server programs that can see, hear, and speak in realtime.",
@@ -22,6 +24,7 @@
           "Type": "Research project"
       },
       {
+        "Id": 3,
         "Title": "Firecrawl",
         "Description": "Firecrawl is an API service that takes a URL, crawls it, and converts it into clean markdown or structured data. We crawl all accessible subpages and give you clean data for each. No sitemap required. Check out our documentation.",
         "Summary":"Firecrawl is an API service that takes a URL, crawls it, and converts it into clean markdown or structured data.",
@@ -31,6 +34,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 4,
         "Title": "Gptme",
         "Description": "Personal AI assistant in your terminal, with tools so it can: Use the terminal, run code, edit files, browse the web, use vision, and much more; Assists in all kinds of knowledge-work, especially programming, from a simple but powerful CLI. An unconstrained local alternative to ChatGPT's 'Code Interpreter'. Not limited by lack of software, internet access, timeouts, or privacy concerns (if using local models).",
         "Summary":"Personal AI assistant in your terminal",
@@ -41,6 +45,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 5,
         "Title": "The Algorithms - Python",
         "Description": "Implementations are for learning purposes only. They may be less efficient than the implementations in the Python standard library. Use them at your discretion.",
         "Summary":"All algorithms implemented in Python - for education",
@@ -52,6 +57,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 6,
         "Title": "Pokemon Auto Chess",
         "Description": "Non profit game. For fans, by fans.",
         "Summary":"Non profit game. For fans, by fans.",
@@ -63,6 +69,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 7,
         "Title": "Hyprland",
         "Description": "Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks. It provides the latest Wayland features, is highly customizable, has all the eyecandy, the most powerful plugins, easy IPC, much more QoL stuff than other compositors and more...",
         "Summary":"Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.",
@@ -74,6 +81,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 8,
         "Title": "Screenpipe",
         "Description": "Library to build personalized AI powered by what you've seen, said, or heard. Works with Ollama. Alternative to Rewind.ai. Open. Secure. You own your data. Rust.",
         "Summary": "Library to build personalized AI powered by what you've seen, said, or heard.",
@@ -85,6 +93,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 9,
         "Title": "Ecapture",
         "Description": "Capture SSL/TLS text content without a CA certificate using eBPF",
         "Summary":"Capture SSL/TLS text content without a CA certificate using eBPF",
@@ -96,6 +105,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 10,
         "Title": "Meshery",
         "Description": "A self-service engineering platform, Meshery, is the open source, cloud native manager that enables the design and management of all Kubernetes-based infrastructure and applications (multi-cloud). Among other features, As an extensible platform, Meshery offers visual and collaborative GitOps, freeing you from the chains of YAML while managing Kubernetes multi-cluster deployments.",
         "Summary":"A self-service engineering platform, Meshery, enables the design and management of all Kubernetes-based infrastructure and applications",
@@ -107,6 +117,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 11,
         "Title": "Pake",
         "Description": "Turn any webpage into a desktop app with Rust with ease.",
         "Summary":"Turn any webpage into a desktop app with Rust with ease.",
@@ -118,6 +129,7 @@
         "Type": "Research project"
       },
       {
+        "Id": 12,
         "Title": "Supervision",
         "Description": "We write your reusable computer vision tools. Whether you need to load your dataset from your hard drive, draw detections on an image or video, or count how many detections are in a zone. You can count on us! ",
         "Summary":"We write your reusable computer vision tools.",

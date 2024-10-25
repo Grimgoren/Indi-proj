@@ -12,6 +12,7 @@ import $ from 'jquery';
 import React from 'react';
 
 interface Project {
+  Id: number;
   Title: string;
   Description: string;
   Summary: string;

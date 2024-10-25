@@ -7,6 +7,7 @@ global.fetch = jest.fn(() =>
       Promise.resolve({
         Projects: [
           {
+            Id: '100',
             Title: 'Test title',
             Description: 'Test description',
             Tag: 'Test tag',
@@ -28,6 +29,7 @@ describe('readJson', () => {
     expect(data.length).toBeGreaterThan(0)
 
     const project = data[0]
+    expect(project.Id).toBe('100')
     expect(project.Title).toBe('Test title')
     expect(project.Description).toBe('Test description')
     expect(project.Tag).toBe('Test tag')

@@ -1,6 +1,7 @@
 'use client';
 
 interface Project {
+  Id: number;
   Title: string;
   Description: string;
   Summary: string;
@@ -98,15 +99,19 @@ export default function Kiosk() {
   useEffect(() => {
     const intervalId = setInterval(async () => {
       const updatedData = await reloadJson();
-  
+
       if (updatedData && updatedData.Projects) {
         setFilteredProjects(updatedData.Projects);
+
         if (project) {
           const updatedProject = updatedData.Projects.find(
-            (p: Project) => p.Title === project.Title
+            (project: Project) => project.Id === project.Id
           );
+
           if (updatedProject) {
             setProject(updatedProject);
+          } else {
+            setProject(null);
           }
         }
       } else {

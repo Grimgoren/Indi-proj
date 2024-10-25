@@ -1,6 +1,7 @@
 import sumJsonQuery from './sumJsonQuery';
 
 interface Project {
+  Id: number;
   Title: string;
   Description: string;
   Summary: string;

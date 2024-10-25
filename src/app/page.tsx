@@ -1,6 +1,7 @@
 'use client';
 
 interface Project {
+  Id: number;
   Title: string;
   Description: string;
   Summary: string;
@@ -69,19 +70,23 @@ export default function Homepage() {
 
       if (updatedData && updatedData.Projects) {
         setFilteredProjects(updatedData.Projects);
+
         if (selectedProject) {
           const updatedProject = updatedData.Projects.find(
-            (project: Project) => project.Title === selectedProject.Title
+            (project: Project) => project.Id === selectedProject.Id
           );
+
           if (updatedProject) {
             setSelectedProject(updatedProject);
+          } else {
+            setSelectedProject(null);
           }
         }
       } else {
         console.error('Failed to reload project data');
       }
     }, 10000);
-
+  
     return () => clearInterval(intervalId);
   }, [selectedProject]);
 

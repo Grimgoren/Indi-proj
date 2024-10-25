@@ -5,6 +5,7 @@ describe('sumJsonQuery', () => {
   it('correctly sums the number of filtered projects', async () => {
     const filteredProjects = [
       {
+        Id: '100',
         Title: 'Searchthis',
         Description: 'Test',
         Tag: 'Tag1',
@@ -13,6 +14,7 @@ describe('sumJsonQuery', () => {
         Type: 'Student',
       },
       {
+        Id: '200',
         Title: 'OtherProject',
         Description: 'Test 2',
         Tag: 'Tag2',
